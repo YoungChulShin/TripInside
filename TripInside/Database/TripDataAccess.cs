@@ -17,7 +17,7 @@ namespace TripInside.Database
         static TripDataAccess()
         {
             _database = DependencyService.Get<IDatabaseConnection>().DbConnection();
-            _database.CreateTable<Trip>();
+			_database.CreateTable<Trip>();
             Trips = new ObservableCollection<Trip>(_database.Table<Trip>());
         }
 

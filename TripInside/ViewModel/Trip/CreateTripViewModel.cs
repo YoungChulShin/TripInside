@@ -4,6 +4,7 @@ using TripInside.Models;
 using TripInside.View.Trip;
 using Xamarin.Forms;
 using TripInside.Database;
+using TripInside.Models.DBModels;
 
 namespace TripInside.ViewModel.Trip
 {
@@ -16,9 +17,19 @@ namespace TripInside.ViewModel.Trip
         private string _nationalName;
         private DateTime _fromDate = DateTime.Now;
         private DateTime _toDate = DateTime.Now.AddDays(7);
+
         public CreateTripViewModel(INavigation navigaion)
         {
-            _navigation = navigaion;    
+            _navigation = navigaion;
+
+            /*
+			MessagingCenter.Subscribe<CreateTripView, Nation>(this, "SelectNation", (sender, arg) =>
+			{
+                _nationalCode = arg.Code;
+                NationalName = arg.Name;
+                NationalFlag = ImageSource.FromResource($"TripInside.Resources.Images.NationalFlag.{arg.Code}.gif");
+			});
+			*/
         }
 
         public string TripName
@@ -40,6 +51,11 @@ namespace TripInside.ViewModel.Trip
             {
                 return _fromDate;
             }
+            set
+            {
+                _fromDate = value;
+                OnPropertyChanged();
+            }
         }
 		public DateTime ToDate
 		{
@@ -47,6 +63,11 @@ namespace TripInside.ViewModel.Trip
 			{
                 return _toDate;
 			}
+            set
+            {
+                _toDate = value;
+                OnPropertyChanged();
+            }
 		}
 
         public ImageSource NationalFlag
@@ -79,17 +100,18 @@ namespace TripInside.ViewModel.Trip
 		{
 			get
 			{
-                return new Command(async() =>
+                return new Command(async () =>
                 {
-					TripDataAccess.SaveTrip(new Models.DBModels.Trip()
-					{
-						Name = _tripName,
+                    TripDataAccess.SaveTrip(new Models.DBModels.Trip()
+                    {
+                        Name = _tripName,
                         NationalCode = _nationalCode,
-						FromDate = _fromDate,
-						ToDate = _toDate,
-						CreateDate = DateTime.Now
-					});
+                        FromDate = _fromDate,
+                        ToDate = _toDate,
+                        CreateDate = DateTime.Now
+                    });
 
+                    MessagingCenter.Send<TripListView>(new TripListView(), "UpdateTripList");
                     await _navigation.PopModalAsync();
                 });
 			}

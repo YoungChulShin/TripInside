@@ -2,44 +2,57 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="TripInside.View.Trip.TripListView"
-             Title="여행 기록">
+             Title="{Binding Title}">
+    
 	<ContentPage.Content>
-        <StackLayout>
-            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" 
-                         IsVisible="{Binding ViewCreateTrip}" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" 
+                         IsVisible="{Binding ViewCreateTripControls}" >
                 <Label Text="여행의 기록이 없습니다" FontSize="13" />
                 <Label Text="새로운 여행을 기록해 보세요" FontSize="13" />
                 <Button Text="새로운 기록 시작" Margin="0,15,0,0" HeightRequest="30" BackgroundColor="#1ABC9C"
                                         FontSize="13" FontAttributes="Bold" TextColor="White"  
                                         Command="{Binding CreateNewTrip}"/>
             </StackLayout>
-            <ListView ItemsSource="{Binding Items}" 
-                      RowHeight="40" Margin="0,20,0,0" 
-                      IsVisible="{Binding TripListViewModel}" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="30" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="30" />
-                                </Grid.ColumnDefinitions>
-                                <Image Grid.Column="0" Source="{Binding NationalFlag}" Aspect="AspectFit" WidthRequest="30" HeightRequest="30"/>
-                                <Grid Grid.Column="1">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                    </Grid.RowDefinitions>
-                                    <Label Grid.Row="0" Text="{Binding Name}" FontSize="14" Margin="30,0,0,0" VerticalOptions="Center" />
-                                    <Label Grid.Row="1" Text="{Binding DurationString}" FontSize="14" Margin="30,0,0,0" VerticalOptions="Center" />
+            <Grid Grid.Row="0" Margin="15"
+                  IsVisible="{Binding ViewTripControls}" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="35" />
+                </Grid.RowDefinitions>
+                <ListView Grid.Row="0" ItemsSource="{Binding Items}" 
+                          RowHeight="45" VerticalOptions="FillAndExpand" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="30" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="0" Source="{Binding NationalFlag}" Aspect="AspectFit" WidthRequest="30" HeightRequest="30"/>
+                                    <Grid Grid.Column="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0" Text="{Binding Name}" FontSize="14" Margin="30,0,0,0" VerticalOptions="Center" />
+                                        <Label Grid.Row="1" Text="{Binding DurationString}" FontSize="14" Margin="30,0,0,0" VerticalOptions="Center" />
+                                    </Grid>
+                                    <Label Grid.Column="2" Text="{Binding InsideString}" FontSize="14" VerticalOptions="Center"/>
                                 </Grid>
-                                <Label Grid.Column="2" Text="{Binding InsideString}" />
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Grid.Row="1" Text="새로운 기록 시작" BackgroundColor="#1ABC9C"
+                        FontSize="13" FontAttributes="Bold" TextColor="White"  
+                        Command="{Binding CreateNewTrip}"/>
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using SQLite;
 using TripInside.Models.DBModels;
-using Xamarin.Forms;
-using System.Reflection;
-using System.IO;
 using TripInside.View.Trip;
+using Xamarin.Forms;
 
 namespace TripInside.Database
 {
-    public class NationDataAccess
+    public static class NationDataAccess
     {
 		private static SQLiteConnection _database;
 		private static ObservableCollection<Nation> Nations { get; set; }
 
-        public NationDataAccess()
+        static NationDataAccess()
         {
 			_database = DependencyService.Get<IDatabaseConnection>().DbConnection();
 			_database.CreateTable<Nation>();

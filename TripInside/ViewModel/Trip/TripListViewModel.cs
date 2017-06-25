@@ -16,6 +16,9 @@ namespace TripInside.ViewModel.Trip
     {
         INavigation _navigation;
         private ObservableCollection<Models.TripInfo> _items;
+        private string _title = string.Empty;
+        private bool _viewTripListControls = false;
+        private bool _viewCreateTripControls = false;
 
         public ObservableCollection<Models.TripInfo> Items
         {
@@ -30,21 +33,61 @@ namespace TripInside.ViewModel.Trip
             }
         }
 
+        public string Title
+        {
+            get
+            {
+                return _title;
+            }
+            set
+            {
+                _title = value;
+                OnPropertyChanged();
+            }
+        }
+
         public TripListViewModel(INavigation navigation)
         {
             _navigation = navigation;
 
-            MakeItems();
-            //_items = new ObservableCollection<Model.Trip>(TripDataAccess.GetTrips());
+            MessagingCenter.Subscribe<TripListView>(this, "UpdateTripList", (sender) =>
+            {
+                MakeTripListItems();
+            });
+
+            MakeTripListItems();
         }
 
-        public bool ViewCreateTrip
+        public bool ViewTripControls
         {
             get
             {
-                int tripCount = TripDataAccess.GetTripCount();
+                //int tripCount = TripDataAccess.GetTripCount();
+                //return (tripCount == 0) ? true : false;
+                return _viewTripListControls;
+            }
+            set
+            {
+                _viewTripListControls = value;
+                _viewCreateTripControls = !value;
+                OnPropertyChanged();
+                OnPropertyChanged("ViewCreateTripControls");
+            }
+        }
 
-                return (tripCount == 0) ? true : false;
+        public bool ViewCreateTripControls
+        {
+            get
+            {
+                return _viewCreateTripControls;
+            }
+            set
+            {
+                _viewCreateTripControls = value;
+                _viewTripListControls = !value;
+
+                OnPropertyChanged();
+                OnPropertyChanged("ViewTripControls");
             }
         }
 
@@ -53,14 +96,6 @@ namespace TripInside.ViewModel.Trip
             get
             {
                 return TripDataAccess.GetTripCount().ToString();
-            }
-        }
-
-        public bool ViewTripList
-        {
-            get
-            {
-                return !ViewCreateTrip;
             }
         }
 
@@ -75,16 +110,16 @@ namespace TripInside.ViewModel.Trip
             }
         }
 
-		private void MakeItems()
+        private void MakeTripListItems()
 		{
-            _items = new ObservableCollection<Models.TripInfo>();
+            Items = new ObservableCollection<Models.TripInfo>();
 
             Nation nation;
             foreach (var trip in TripDataAccess.GetTrips())
             {
                 nation = NationDataAccess.GetNation(trip.NationalCode);
 
-                _items.Add(new Models.TripInfo()
+                Items.Add(new Models.TripInfo()
                 {
                     Id = trip.Id,
                     Name = trip.Name,
@@ -95,6 +130,17 @@ namespace TripInside.ViewModel.Trip
                     CreateDate = trip.CreateDate,
                     NationalFlag = ImageSource.FromResource($"TripInside.Resources.Images.NationalFlag.{nation.Code}.gif")
                 });
+            }
+
+            if (_items.Count == 0)
+            {
+                Title = "여행 기록";
+                ViewCreateTripControls = true;
+            }
+            else
+            {
+                Title = $"여행 기록 ({_items.Count})";
+                ViewCreateTripControls = false;
             }
 		}
     }
