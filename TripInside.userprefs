@@ -1,0 +1,52 @@
+﻿<Properties StartupConfiguration="{721F0FDE-6B8E-4B99-AABF-B4758B203C4C}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TripInside/Database/TripDataAccess.cs">
+    <Files>
+      <File FileName="TripInside/View/Trip/TripListView.xaml" Line="30" Column="81" />
+      <File FileName="TripInside/View/Trip/TripListView.xaml.cs" Line="12" Column="1" />
+      <File FileName="TripInside/ViewModel/Trip/TripListViewModel.cs" Line="66" Column="52" />
+      <File FileName="TripInside/View/Trip/CreateTripView.xaml" Line="76" Column="1" />
+      <File FileName="TripInside/ViewModel/Trip/CreateTripViewModel.cs" Line="89" Column="34" />
+      <File FileName="iOS/DatabaseConnection_iOS.cs" Line="14" Column="27" />
+      <File FileName="iOS/Main.cs" Line="7" Column="1" />
+      <File FileName="TripInside/Models/NationalInfo.cs" Line="12" Column="1" />
+      <File FileName="TripInside/Models/DBModels/Nation.cs" Line="38" Column="1" />
+      <File FileName="TripInside/Database/NationDataAccess.cs" Line="25" Column="13" />
+      <File FileName="TripInside/ViewModel/Trip/NationalListViewModel.cs" Line="51" Column="1" />
+      <File FileName="TripInside/Database/TripDataAccess.cs" Line="44" Column="9" NotebookId="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TripInside" expanded="True" selected="True">
+            <Node name="TripInside" expanded="True">
+              <Node name="Database" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="DBModels" expanded="True" />
+              </Node>
+              <Node name="View" expanded="True">
+                <Node name="Trip" expanded="True">
+                  <Node name="TripListView.xaml" expanded="True" />
+                </Node>
+                <Node name="MainAppView.xaml" expanded="True" />
+              </Node>
+              <Node name="ViewModel" expanded="True">
+                <Node name="Trip" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/ShinYoungChul/MyProject/TripInside/TripInside/ViewModel/Trip/TripListViewModel.cs" relfile="TripInside/ViewModel/Trip/TripListViewModel.cs" line="65" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.TripInside.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7A156CEA-95B3-4009-9808-2758D46C52D0">
+    <MonoDevelop.MacDev.AppleDevelopmentTeam />
+  </MonoDevelop.Ide.ItemProperties.TripInside.iOS>
+</Properties>

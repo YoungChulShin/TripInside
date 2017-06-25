@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8BDAC57F-EBE0-4038-B816-9D585F799E2F}</ProjectGuid>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <UseMSBuildEngine>true</UseMSBuildEngine>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TripInside</RootNamespace>
+    <AssemblyName>TripInside</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App.xaml" />
+    <EmbeddedResource Include="View\MainLoadingView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainAppView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Setting\SettingView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Trip\TripListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Trip\CreateTripView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Trip\NationalListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Files\NationalList.txt" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ad.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ae.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\af.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ag.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ai.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\al.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\am.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\an.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ao.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\aq.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ar.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\as.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\at.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\au.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\aw.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ax.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\az.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ba.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\bb.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\bd.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\be.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\bf.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\bg.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\bh.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\bi.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\bj.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\bm.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\bn.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\bo.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\br.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\bs.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\bt.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\bv.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\bw.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\by.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\bz.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ca.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\cc.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\cd.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\cf.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\cg.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ch.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ci.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ck.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\cl.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\cm.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\cn.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\co.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\cr.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\cu.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\cv.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\cx.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\cy.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\cz.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\de.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\dj.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\dk.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\dm.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\do.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\dz.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ec.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ee.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\eg.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\eh.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\er.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\es.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\et.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\fi.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\fj.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\fk.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\fm.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\fo.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\fr.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ga.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\gb.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\gd.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ge.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\gf.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\gg.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\gh.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\gi.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\gl.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\gm.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\gn.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\gp.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\gq.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\gr.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\gs.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\gt.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\gu.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\gw.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\gy.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\hk.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\hm.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\hn.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\hr.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ht.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\hu.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\id.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ie.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\il.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\im.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\in.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\io.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\iq.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ir.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\is.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\it.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\je.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\jm.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\jo.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\jp.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ke.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\kg.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\kh.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ki.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\km.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\kn.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\kp.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\kr.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\kw.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ky.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\kz.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\la.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\lb.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\lc.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\li.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\lk.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\lr.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ls.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\lt.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\lu.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\lv.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ly.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ma.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\mc.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\md.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\me.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\mg.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\mh.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\mk.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ml.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\mm.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\mn.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\mo.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\mp.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\mq.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\mr.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ms.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\mt.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\mu.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\mv.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\mw.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\mx.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\my.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\mz.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\na.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\nc.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ne.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\nf.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ng.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ni.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\nl.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\no.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\np.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\nr.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\nu.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\nz.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\om.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\pa.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\pe.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\pf.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\pg.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ph.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\pk.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\pl.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\pm.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\pn.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\pr.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ps.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\pt.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\pw.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\py.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\qa.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\re.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ro.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\rs.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ru.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\rw.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\sa.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\sb.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\sc.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\sd.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\se.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\sg.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\sh.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\si.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\sj.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\sk.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\sl.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\sm.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\sn.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\so.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\sr.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ss.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\st.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\sv.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\sx.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\sy.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\sz.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\tc.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\td.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\tf.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\tg.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\th.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\tj.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\tk.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\tl.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\tm.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\tn.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\to.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\tr.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\tt.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\tv.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\tw.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\tz.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ua.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ug.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\um.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\us.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\uy.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\uz.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\va.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\vc.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ve.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\vg.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\vi.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\vn.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\vu.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\wf.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ws.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\ye.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\yt.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\za.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\zm.gif" />
+    <EmbeddedResource Include="Resources\Images\NationalFlag\zw.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\MainLoadingView.xaml.cs">
+      <DependentUpon>MainLoadingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainAppView.xaml.cs">
+      <DependentUpon>MainAppView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Setting\SettingView.xaml.cs">
+      <DependentUpon>SettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Trip\TripListView.xaml.cs">
+      <DependentUpon>TripListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service\AppServiceInfo.cs" />
+    <Compile Include="ViewModel\Trip\TripListViewModel.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="View\Trip\CreateTripView.xaml.cs">
+      <DependentUpon>CreateTripView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Trip\CreateTripViewModel.cs" />
+    <Compile Include="View\Trip\NationalListView.xaml.cs">
+      <DependentUpon>NationalListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Trip\NationalListViewModel.cs" />
+    <Compile Include="Models\NationalInfo.cs" />
+    <Compile Include="Database\IDatabaseConnection.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Database\TripDataAccess.cs" />
+    <Compile Include="Models\DBModels\Trip.cs" />
+    <Compile Include="Models\DBModels\Nation.cs" />
+    <Compile Include="Database\NationDataAccess.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\" />
+    <Folder Include="View\Trip\" />
+    <Folder Include="View\Setting\" />
+    <Folder Include="ViewModel\" />
+    <Folder Include="Service\" />
+    <Folder Include="ViewModel\Trip\" />
+    <Folder Include="Models\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\Images\" />
+    <Folder Include="Resources\Images\NationalFlag\" />
+    <Folder Include="Resources\Files\" />
+    <Folder Include="MyControls\" />
+    <Folder Include="Database\" />
+    <Folder Include="Models\DBModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\netstandard1.1\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core">
+      <HintPath>..\packages\SQLitePCLRaw.core.1.1.5\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_green">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.5\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.5\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net">
+      <HintPath>..\packages\sqlite-net-pcl.1.3.3\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
+</Project>
