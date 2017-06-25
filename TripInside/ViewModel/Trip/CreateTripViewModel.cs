@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
-using TripInside.Model;
+using TripInside.Models;
 using TripInside.View.Trip;
 using Xamarin.Forms;
 using TripInside.Database;
@@ -81,12 +81,10 @@ namespace TripInside.ViewModel.Trip
 			{
                 return new Command(async() =>
                 {
-					TripDataAccess.SaveTrip(new Model.Trip()
+					TripDataAccess.SaveTrip(new Models.DBModels.Trip()
 					{
 						Name = _tripName,
                         NationalCode = _nationalCode,
-                        NationalName = _nationalName,
-                        NationalFlag = _nationalFlag,
 						FromDate = _fromDate,
 						ToDate = _toDate,
 						CreateDate = DateTime.Now

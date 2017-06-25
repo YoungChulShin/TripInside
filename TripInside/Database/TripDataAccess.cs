@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using SQLite;
-using TripInside.Model;
+using TripInside.Models;
 using Xamarin.Forms;
+using TripInside.Models.DBModels;
 
 namespace TripInside.Database
 {

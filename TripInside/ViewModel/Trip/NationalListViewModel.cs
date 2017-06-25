@@ -3,11 +3,13 @@ using Xamarin.Forms;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using TripInside.Model;
 using System.Threading.Tasks;
 using System.IO;
 using TripInside.View.Trip;
 using System.Reflection;
+using TripInside.Models.DBModels;
+using TripInside.Database;
+using TripInside.Models;
 
 namespace TripInside.ViewModel.Trip
 {
@@ -36,30 +38,15 @@ namespace TripInside.ViewModel.Trip
         private void MakeNationalItems()
         {
             items = new ObservableCollection<NationalInfo>();
-            foreach (string nationalInfo in GetNationalListText().Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries))
-			{
-                string[] nationalItem = nationalInfo.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (Nation nation in NationDataAccess.GetNations())
+            {
                 items.Add(new NationalInfo()
                 {
-                    Code = nationalItem[0],
-                    Name = nationalItem[1],
-                    Flag = ImageSource.FromResource(string.Format("TripInside.Resources.Images.NationalFlag.{0}.gif", nationalItem[0]))
+                    Code = nation.Code,
+                    Name = nation.Name,
+                    Flag = ImageSource.FromResource(string.Format("TripInside.Resources.Images.NationalFlag.{0}.gif", nation.Code))
                 });
-			}
-        }
-
-        private string GetNationalListText()
-        {
-            var assembly = this.GetType().GetTypeInfo().Assembly;
-            Stream stream = assembly.GetManifestResourceStream("TripInside.Resources.Files.NationalList.txt");
-
-            string nationalList = string.Empty;
-            using (var reader = new System.IO.StreamReader(stream))
-            {
-                nationalList = reader.ReadToEnd();
             }
-
-            return nationalList;
         }
     }
 }

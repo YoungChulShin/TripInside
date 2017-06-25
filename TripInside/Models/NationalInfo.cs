@@ -1,6 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
-namespace TripInside.Model
+namespace TripInside.Models
 {
     public class NationalInfo
     {

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using TripInside.ViewModel.Trip;
 using Xamarin.Forms;
-using TripInside.Model;
 using System.Threading.Tasks;
+using TripInside.Models;
 
 namespace TripInside.View.Trip
 {

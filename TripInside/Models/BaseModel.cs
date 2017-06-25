@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace TripInside.Model
+namespace TripInside.Models
 {
     public class BaseModel : INotifyPropertyChanged
     {

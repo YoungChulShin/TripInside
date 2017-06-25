@@ -6,18 +6,18 @@ using TripInside.View.Trip;
 using TripInside.Database;
 using System.Collections.ObjectModel;
 using System.Linq;
-using TripInside.Model;
 using System.Reflection;
 using System.IO;
+using TripInside.Models.DBModels;
 
 namespace TripInside.ViewModel.Trip
 {
     public class TripListViewModel : BaseViewModel
     {
         INavigation _navigation;
-        private ObservableCollection<Model.Trip> _items;
+        private ObservableCollection<Models.TripInfo> _items;
 
-        public ObservableCollection<Model.Trip> Items
+        public ObservableCollection<Models.TripInfo> Items
         {
             get
             {
@@ -48,6 +48,22 @@ namespace TripInside.ViewModel.Trip
             }
         }
 
+        public string TripCount
+        {
+            get
+            {
+                return TripDataAccess.GetTripCount().ToString();
+            }
+        }
+
+        public bool ViewTripList
+        {
+            get
+            {
+                return !ViewCreateTrip;
+            }
+        }
+
         public ICommand CreateNewTrip
         {
             get
@@ -59,13 +75,26 @@ namespace TripInside.ViewModel.Trip
             }
         }
 
-
 		private void MakeItems()
 		{
-            _items = new ObservableCollection<Model.Trip>();
+            _items = new ObservableCollection<Models.TripInfo>();
+
+            Nation nation;
             foreach (var trip in TripDataAccess.GetTrips())
             {
-                _items.Add(trip);
+                nation = NationDataAccess.GetNation(trip.NationalCode);
+
+                _items.Add(new Models.TripInfo()
+                {
+                    Id = trip.Id,
+                    Name = trip.Name,
+                    NationalCode = nation.Code,
+                    NationalName = nation.Name,
+                    FromDate = trip.FromDate,
+                    ToDate = trip.ToDate,
+                    CreateDate = trip.CreateDate,
+                    NationalFlag = ImageSource.FromResource($"TripInside.Resources.Images.NationalFlag.{nation.Code}.gif")
+                });
             }
 		}
     }

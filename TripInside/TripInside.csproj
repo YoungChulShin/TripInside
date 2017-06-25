@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -299,6 +299,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\TripInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\MainLoadingView.xaml.cs">
       <DependentUpon>MainLoadingView.xaml</DependentUpon>
@@ -335,20 +336,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="View\" />
-    <Folder Include="View\Trip\" />
-    <Folder Include="View\Setting\" />
-    <Folder Include="ViewModel\" />
-    <Folder Include="Service\" />
-    <Folder Include="ViewModel\Trip\" />
-    <Folder Include="Models\" />
-    <Folder Include="Resources\" />
-    <Folder Include="Resources\Images\" />
-    <Folder Include="Resources\Images\NationalFlag\" />
-    <Folder Include="Resources\Files\" />
     <Folder Include="MyControls\" />
-    <Folder Include="Database\" />
-    <Folder Include="Models\DBModels\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

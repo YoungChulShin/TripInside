@@ -17,7 +17,7 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-	<ContentPage.Content>
+    <ContentPage.Content>
         <Grid VerticalOptions="Center" Margin="20,0,20,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30" />

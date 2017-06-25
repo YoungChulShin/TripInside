@@ -1,6 +1,6 @@
 ﻿using System;
 using SQLite;
-using TripInside.Model;
+using TripInside.Models;
 using Xamarin.Forms;
 
 namespace TripInside.Models.DBModels
@@ -11,8 +11,6 @@ namespace TripInside.Models.DBModels
         private int _id;
         private string _name;
         private string _nationalCode;
-        private string _nationalName;
-        private Image _nationalFlag;
         private DateTime _fromDate;
         private DateTime _toDate;
         private DateTime _createDate;
@@ -59,34 +57,6 @@ namespace TripInside.Models.DBModels
             }
         }
 
-		[NotNull]
-		public string NationalName
-		{
-			get
-			{
-                return _nationalName;
-			}
-			set
-			{
-				_nationalName = value;
-				OnPropertyChanged();
-			}
-		}
-
-		[NotNull]
-        public Image NationalFlag
-		{
-			get
-			{
-                return _nationalFlag;
-			}
-			set
-			{
-				_nationalFlag = value;
-				OnPropertyChanged();
-			}
-		}
-
         [NotNull]
         public DateTime FromDate
         {
@@ -114,14 +84,6 @@ namespace TripInside.Models.DBModels
                 OnPropertyChanged();
             }
         }
-
-        public string DurationString
-		{
-			get
-			{
-                return string.Format("{0} ~ {1}", _fromDate.ToString("yyyy.MM.dd"), _toDate.ToString("yyyy.MM.dd"));
-			}
-		}
 
         public DateTime CreateDate
         {
