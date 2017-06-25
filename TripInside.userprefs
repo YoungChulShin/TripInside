@@ -1,20 +1,22 @@
 ﻿<Properties StartupConfiguration="{721F0FDE-6B8E-4B99-AABF-B4758B203C4C}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="TripInside/ViewModel/Trip/CreateTripViewModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TripInside/View/MainLoadingView.xaml">
     <Files>
-      <File FileName="TripInside/View/Trip/TripListView.xaml" Line="13" Column="69" />
+      <File FileName="TripInside/View/Trip/TripListView.xaml" Line="27" Column="39" />
       <File FileName="TripInside/View/Trip/TripListView.xaml.cs" Line="12" Column="1" />
       <File FileName="TripInside/View/Trip/CreateTripView.xaml" Line="76" Column="1" />
-      <File FileName="TripInside/ViewModel/Trip/CreateTripViewModel.cs" Line="29" Column="43" />
+      <File FileName="TripInside/ViewModel/Trip/CreateTripViewModel.cs" Line="27" Column="1" />
       <File FileName="iOS/DatabaseConnection_iOS.cs" Line="14" Column="27" />
       <File FileName="TripInside/Models/NationalInfo.cs" Line="12" Column="1" />
       <File FileName="TripInside/Database/NationDataAccess.cs" Line="13" Column="2" />
       <File FileName="TripInside/ViewModel/Trip/NationalListViewModel.cs" Line="41" Column="61" />
-      <File FileName="TripInside/View/Trip/NationalListView.xaml.cs" Line="28" Column="48" />
-      <File FileName="TripInside/ViewModel/Trip/TripListViewModel.cs" Line="56" Column="16" />
+      <File FileName="TripInside/View/Trip/NationalListView.xaml.cs" Line="21" Column="99" />
+      <File FileName="TripInside/ViewModel/Trip/TripListViewModel.cs" Line="132" Column="13" />
       <File FileName="TripInside/View/Trip/CreateTripView.xaml.cs" Line="17" Column="1" />
-      <File FileName="TripInside/Database/TripDataAccess.cs" Line="22" Column="10" />
+      <File FileName="TripInside/Database/TripDataAccess.cs" Line="5" Column="34" />
       <File FileName="iOS/Main.cs" Line="17" Column="1" />
       <File FileName="TripInside/View/Trip/NationalListView.xaml" Line="23" Column="1" />
+      <File FileName="TripInside/View/MainAppView.xaml" Line="7" Column="1" />
+      <File FileName="TripInside/View/MainLoadingView.xaml" Line="11" Column="65" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
