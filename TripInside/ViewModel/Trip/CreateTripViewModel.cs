@@ -22,14 +22,12 @@ namespace TripInside.ViewModel.Trip
         {
             _navigation = navigaion;
 
-            /*
-			MessagingCenter.Subscribe<CreateTripView, Nation>(this, "SelectNation", (sender, arg) =>
+            MessagingCenter.Subscribe<CreateTripView, NationalInfo>(this, "SelectNation", (sender, arg) =>
 			{
                 _nationalCode = arg.Code;
                 NationalName = arg.Name;
-                NationalFlag = ImageSource.FromResource($"TripInside.Resources.Images.NationalFlag.{arg.Code}.gif");
+                NationalFlag = arg.Flag;
 			});
-			*/
         }
 
         public string TripName
@@ -133,14 +131,7 @@ namespace TripInside.ViewModel.Trip
             {
 				return new Command(async () =>
 				{
-                    NationalListView view = new NationalListView();
-
-                    await _navigation.PushModalAsync(view);
-                    await view.PageClosedTask;
-
-                    _nationalCode = view.SelectedItem.Code;
-                    NationalName = view.SelectedItem.Name;
-                    NationalFlag = view.SelectedItem.Flag;
+                    await _navigation.PushModalAsync(new NationalListView());
 				});
             }
         }

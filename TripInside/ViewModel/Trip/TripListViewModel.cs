@@ -62,8 +62,6 @@ namespace TripInside.ViewModel.Trip
         {
             get
             {
-                //int tripCount = TripDataAccess.GetTripCount();
-                //return (tripCount == 0) ? true : false;
                 return _viewTripListControls;
             }
             set

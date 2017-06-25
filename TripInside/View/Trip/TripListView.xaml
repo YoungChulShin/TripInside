@@ -24,7 +24,7 @@
                     <RowDefinition Height="35" />
                 </Grid.RowDefinitions>
                 <ListView Grid.Row="0" ItemsSource="{Binding Items}" 
-                          RowHeight="45" VerticalOptions="FillAndExpand" >
+                          RowHeight="45" VerticalOptions="FillAndExpand" SeparatorVisibility="None" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
