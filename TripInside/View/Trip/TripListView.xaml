@@ -24,7 +24,8 @@
                     <RowDefinition Height="35" />
                 </Grid.RowDefinitions>
                 <ListView Grid.Row="0" ItemsSource="{Binding Items}" 
-                          RowHeight="50" VerticalOptions="FillAndExpand" SeparatorVisibility="None" >
+                          RowHeight="50" VerticalOptions="FillAndExpand" SeparatorVisibility="None"
+                          ItemTapped="Handle_ItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -46,10 +47,10 @@
                                                     <RowDefinition Height="*" />
                                                     <RowDefinition Height="*" />
                                                 </Grid.RowDefinitions>
-                                                <Label Grid.Row="0" Text="{Binding Name}" FontSize="14" Margin="30,0,0,0" TextColor="White" VerticalOptions="Center" />
-                                                <Label Grid.Row="1" Text="{Binding DurationString}" FontSize="14" Margin="30,0,0,0" TextColor="White" VerticalOptions="Center" />
+                                                <Label Grid.Row="0" Text="{Binding Name}" FontSize="14" Margin="30,0,0,0" TextColor="Black" VerticalOptions="Center" />
+                                                <Label Grid.Row="1" Text="{Binding DurationString}" FontSize="13" Margin="30,0,0,0" TextColor="White" VerticalOptions="Center" />
                                             </Grid>
-                                            <Label Grid.Column="2" Text="{Binding InsideString}" FontSize="14" TextColor="White" VerticalOptions="Center"/>
+                                            <Label Grid.Column="2" Text="{Binding InsideString}" FontSize="14" TextColor="Black" VerticalOptions="Center"/>
                                         </Grid>
                                     </Frame>
                                     <Label Grid.Row="1" Text="" />

@@ -12,5 +12,10 @@ namespace TripInside.View.Trip
             InitializeComponent();
             BindingContext = new TripListViewModel(this.Navigation);
         }
+
+		void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
+		{
+            Navigation.PushModalAsync(new CreateInsideView());
+        }
     }
 }

@@ -294,6 +294,32 @@
     <EmbeddedResource Include="Resources\Images\NationalFlag\za.gif" />
     <EmbeddedResource Include="Resources\Images\NationalFlag\zm.gif" />
     <EmbeddedResource Include="Resources\Images\NationalFlag\zw.gif" />
+    <EmbeddedResource Include="View\Trip\TripInsideView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Trip\CreateInsideView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\Weathers\cloud_black.png" />
+    <EmbeddedResource Include="Resources\Images\Weathers\cloud_blue.png" />
+    <EmbeddedResource Include="Resources\Images\Weathers\rain_black.png" />
+    <EmbeddedResource Include="Resources\Images\Weathers\snow_black.png" />
+    <EmbeddedResource Include="Resources\Images\Weathers\snow_blue.png" />
+    <EmbeddedResource Include="Resources\Images\Weathers\sun_black.png" />
+    <EmbeddedResource Include="Resources\Images\Weathers\sun_blue.png" />
+    <EmbeddedResource Include="Resources\Images\Weathers\compass_black.png" />
+    <EmbeddedResource Include="Resources\Images\Weathers\compass_blue.png" />
+    <EmbeddedResource Include="Resources\Images\Weathers\compass_green.png" />
+    <EmbeddedResource Include="Resources\Images\Weathers\checkin.png" />
+    <EmbeddedResource Include="Resources\Images\Weathers\sun_red.png" />
+    <EmbeddedResource Include="Resources\Images\Emotions\angry_black.png" />
+    <EmbeddedResource Include="Resources\Images\Emotions\angry_blue.png" />
+    <EmbeddedResource Include="Resources\Images\Emotions\happiness_black.png" />
+    <EmbeddedResource Include="Resources\Images\Emotions\happiness_blue.png" />
+    <EmbeddedResource Include="Resources\Images\Emotions\sad_black.png" />
+    <EmbeddedResource Include="Resources\Images\Emotions\sad_blue.png" />
+    <EmbeddedResource Include="Resources\Images\Emotions\smile_black.png" />
+    <EmbeddedResource Include="Resources\Images\Emotions\smile_blue.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -331,12 +357,22 @@
     <Compile Include="Models\DBModels\Trip.cs" />
     <Compile Include="Models\DBModels\Nation.cs" />
     <Compile Include="Database\NationDataAccess.cs" />
+    <Compile Include="View\Trip\TripInsideView.xaml.cs">
+      <DependentUpon>TripInsideView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Trip\CreateInsideView.xaml.cs">
+      <DependentUpon>CreateInsideView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Trip\CreateInsideViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Resources\Images\Weathers\rain_blue.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MyControls\" />
+    <Folder Include="Resources\Images\Weathers\" />
+    <Folder Include="Resources\Images\Emotions\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

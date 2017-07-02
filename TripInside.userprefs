@@ -1,22 +1,19 @@
 ﻿<Properties StartupConfiguration="{721F0FDE-6B8E-4B99-AABF-B4758B203C4C}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="TripInside/View/MainLoadingView.xaml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/Main.cs">
     <Files>
-      <File FileName="TripInside/View/Trip/TripListView.xaml" Line="27" Column="39" />
-      <File FileName="TripInside/View/Trip/TripListView.xaml.cs" Line="12" Column="1" />
-      <File FileName="TripInside/View/Trip/CreateTripView.xaml" Line="76" Column="1" />
-      <File FileName="TripInside/ViewModel/Trip/CreateTripViewModel.cs" Line="27" Column="1" />
-      <File FileName="iOS/DatabaseConnection_iOS.cs" Line="14" Column="27" />
-      <File FileName="TripInside/Models/NationalInfo.cs" Line="12" Column="1" />
-      <File FileName="TripInside/Database/NationDataAccess.cs" Line="13" Column="2" />
-      <File FileName="TripInside/ViewModel/Trip/NationalListViewModel.cs" Line="41" Column="61" />
-      <File FileName="TripInside/View/Trip/NationalListView.xaml.cs" Line="21" Column="99" />
-      <File FileName="TripInside/ViewModel/Trip/TripListViewModel.cs" Line="132" Column="13" />
-      <File FileName="TripInside/View/Trip/CreateTripView.xaml.cs" Line="17" Column="1" />
-      <File FileName="TripInside/Database/TripDataAccess.cs" Line="5" Column="34" />
-      <File FileName="iOS/Main.cs" Line="17" Column="1" />
+      <File FileName="TripInside/View/Trip/CreateInsideView.xaml" Line="47" Column="82" />
+      <File FileName="TripInside/View/Trip/TripListView.xaml" Line="11" Column="35" />
+      <File FileName="TripInside/View/Trip/TripListView.xaml.cs" Line="18" Column="54" />
+      <File FileName="TripInside/ViewModel/Trip/CreateInsideViewModel.cs" Line="45" Column="37" />
+      <File FileName="TripInside/View/Trip/CreateInsideView.xaml.cs" Line="14" Column="10" />
+      <File FileName="TripInside/ViewModel/Trip/TripListViewModel.cs" Line="129" Column="123" />
+      <File FileName="TripInside/ViewModel/Trip/CreateTripViewModel.cs" Line="128" Column="41" />
+      <File FileName="TripInside/ViewModel/Trip/NationalListViewModel.cs" Line="47" Column="116" />
+      <File FileName="TripInside/obj/Debug/TripInside.View.Trip.CreateInsideView.xaml.g.cs" Line="1" Column="1" />
+      <File FileName="TripInside/View/Trip/CreateTripView.xaml" Line="74" Column="24" />
+      <File FileName="TripInside/View/Trip/TripInsideView.xaml" Line="39" Column="1" />
       <File FileName="TripInside/View/Trip/NationalListView.xaml" Line="23" Column="1" />
-      <File FileName="TripInside/View/MainAppView.xaml" Line="7" Column="1" />
-      <File FileName="TripInside/View/MainLoadingView.xaml" Line="11" Column="65" />
+      <File FileName="iOS/Main.cs" Line="13" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -27,7 +24,7 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.TripInside.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7A156CEA-95B3-4009-9808-2758D46C52D0">
+  <MonoDevelop.Ide.ItemProperties.TripInside.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.239FB532-7BB8-4CEC-8672-69F565DA5E1A">
     <MonoDevelop.MacDev.AppleDevelopmentTeam />
   </MonoDevelop.Ide.ItemProperties.TripInside.iOS>
 </Properties>
