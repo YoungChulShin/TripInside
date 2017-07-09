@@ -29,10 +29,26 @@
                 <ColumnDefinition Width="30" />
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Text="2017.06.10  20:09" TextColor="#1ABC9C" FontSize="16" FontAttributes="Bold" VerticalTextAlignment="Center" />
-            <Image Grid.Column="2" Source="{Binding WeatherSun}" />
-            <Image Grid.Column="3" Source="{Binding WeatherCloud}" />
-            <Image Grid.Column="4" Source="{Binding WeatherRain}" />
-            <Image Grid.Column="5" Source="{Binding WeatherSnow}" />
+            <Image x:name="imgSun" Grid.Column="2" Source="{Binding WeatherSunny}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SetWeatherToSunny}" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Image x:name="imgCloud" Grid.Column="3" Source="{Binding WeatherCloudy}" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SetWeatherToCloudy}" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Image x:name="imgRain" Grid.Column="4" Source="{Binding WeatherRainy}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SetWeatherToRainy}" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Image x:name="imgSnow" Grid.Column="5" Source="{Binding WeatherSnowy}" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SetWeatherToSnowy}" />
+                </Image.GestureRecognizers>
+            </Image>
         </Grid>
         <Grid Padding="0,0,0,0" HorizontalOptions="End">
             <Grid.ColumnDefinitions>

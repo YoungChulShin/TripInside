@@ -7,38 +7,73 @@ namespace TripInside.ViewModel.Trip
     public class CreateInsideViewModel : BaseViewModel
     {
         private INavigation _navigation;
+        private readonly string _weather_sunny = "WeatherSunny";
+        private readonly string _weather_cloudy = "WeatherCloudy";
+        private readonly string _weather_rainy = "WeatherRainy";
+        private readonly string _weather_snowy = "WeatherSnowy";
+        private string _currentWeather = string.Empty;
 
         public CreateInsideViewModel(INavigation navigation)
         {
             _navigation = navigation;
+            _currentWeather = _weather_sunny;
+            OnPropertyChanged(_currentWeather);
         }
 
-        public ImageSource WeatherSun
+        public ImageSource WeatherSunny
         {
             get
             {
-                return ImageSource.FromResource("TripInside.Resources.Images.Weathers.sun_red.png");
+                if (_currentWeather == _weather_sunny)
+                {
+                    return ImageSource.FromResource("TripInside.Resources.Images.Weathers.sun_selected.png");
+                }
+                else
+                {
+                    return ImageSource.FromResource("TripInside.Resources.Images.Weathers.sun.png");
+                }
             }
         }
-		public ImageSource WeatherCloud
-		{
+		public ImageSource WeatherCloudy
+        {
 			get
 			{
-				return ImageSource.FromResource("TripInside.Resources.Images.Weathers.cloud_black.png");
+                if (_currentWeather == _weather_cloudy)
+                {
+                    return ImageSource.FromResource("TripInside.Resources.Images.Weathers.cloud_selected.png");
+                }
+                else
+                {
+                    return ImageSource.FromResource("TripInside.Resources.Images.Weathers.cloud.png");
+                }
 			}
 		}
-		public ImageSource WeatherRain
-		{
+		public ImageSource WeatherRainy
+        {
 			get
 			{
-				return ImageSource.FromResource("TripInside.Resources.Images.Weathers.rain_black.png");
+                if (_currentWeather == _weather_rainy)
+                {
+                    return ImageSource.FromResource("TripInside.Resources.Images.Weathers.rain_selected.png");
+                }
+                else
+                {
+                    return ImageSource.FromResource("TripInside.Resources.Images.Weathers.rain.png");
+                }
 			}
 		}
-		public ImageSource WeatherSnow
-		{
+		public ImageSource WeatherSnowy
+        {
 			get
 			{
-				return ImageSource.FromResource("TripInside.Resources.Images.Weathers.snow_black.png");
+                if (_currentWeather == _weather_snowy)
+                {
+                    return ImageSource.FromResource("TripInside.Resources.Images.Weathers.snow_selected.png");
+                }
+                else
+                {
+                    return ImageSource.FromResource("TripInside.Resources.Images.Weathers.snow.png");
+                }
 			}
 		}
 
@@ -75,7 +110,7 @@ namespace TripInside.ViewModel.Trip
 		{
 			get
 			{
-				return ImageSource.FromResource("TripInside.Resources.Images.Weathers.compass_green.png");
+				return ImageSource.FromResource("TripInside.Resources.Images.Weathers.checkin.png");
 			}
 		}
 
@@ -89,5 +124,66 @@ namespace TripInside.ViewModel.Trip
 				});
 			}
 		}
+
+        public ICommand SetWeatherToSunny
+        {
+            get
+            {
+                return new Command( x =>
+                {
+                    if (_currentWeather != _weather_sunny)
+                    {
+                        OnPropertyChanged(_currentWeather);
+                        OnPropertyChanged(_weather_sunny);
+                        _currentWeather = _weather_sunny;
+                    }
+                });
+            }
+        }
+        public ICommand SetWeatherToCloudy
+        {
+            get
+            {
+                return new Command(x =>
+                {
+                    if (_currentWeather != _weather_cloudy)
+                    {
+                        OnPropertyChanged(_currentWeather);
+                        OnPropertyChanged(_weather_cloudy);
+                        _currentWeather = _weather_cloudy;
+                    }
+                });
+            }
+        }
+        public ICommand SetWeatherToRainy
+        {
+            get
+            {
+                return new Command(x =>
+                {
+                    if (_currentWeather != _weather_rainy)
+                    {
+                        OnPropertyChanged(_currentWeather);
+                        OnPropertyChanged(_weather_rainy);
+                        _currentWeather = _weather_rainy;
+                    }
+                });
+            }
+        }
+        public ICommand SetWeatherToSnowy
+        {
+            get
+            {
+                return new Command(x =>
+                {
+                    if (_currentWeather != _weather_snowy)
+                    {
+                        OnPropertyChanged(_currentWeather);
+                        OnPropertyChanged(_weather_snowy);
+                        _currentWeather = _weather_snowy;
+                    }
+                });
+            }
+        }
     }
 }

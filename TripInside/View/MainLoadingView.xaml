@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TripInside.View.MainLoadingView">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="TripInside.View.MainLoadingView"
+             BackgroundColor="White">
 	<ContentPage.Content>
         <StackLayout Orientation="Vertical"
                      VerticalOptions="CenterAndExpand" 
-                     HorizontalOptions="CenterAndExpand"
-                     BackgroundColor="White">
+                     HorizontalOptions="CenterAndExpand">
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Label Text="T" FontSize="25" TextColor="#1ABC9C" />
                 <Label Text="rip" FontSize="25" Margin="-8,0,0,0"/>
@@ -12,7 +14,7 @@
                 <Label Text="nside" FontSize="25" Margin="-5,0,0,0"/>
             </StackLayout>
             <Label Text="여행에서 느끼는 소중한 추억들..." FontSize="15"/>
-            <Button Text="시작하기" BorderWidth="1" HeightRequest="30" Clicked="Handle_Clicked"/>
+            <Button Text="시작하기" BorderWidth="1" Clicked="Handle_Clicked"/>
         </StackLayout>
 	</ContentPage.Content>
 </ContentPage>
