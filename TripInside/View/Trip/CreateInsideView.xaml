@@ -69,12 +69,16 @@
                 <ColumnDefinition Width="30" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Image Grid.Column="0" Source="{Binding Compass}" />
-            <Label Grid.Column="1" Text="Seoul, Korea" TextColor="Black" FontSize="13" VerticalTextAlignment="Center" />
+            <Image Grid.Column="0" Source="{Binding Compass}" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GetGPSLocation}" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Grid.Column="1" Text="{Binding GPSLocation}" FontSize="13" VerticalTextAlignment="Center" />
         </Grid>
-        <Button Text="기록 하기" BackgroundColor="#1ABC9C" HeightRequest="30" 
+        <Button Text="기록 하기" BackgroundColor="#1ABC9C" HeightRequest="45" 
                 Style="{StaticResource DefaultButtonStype}" />
-        <Button Text="다음에 하기" BackgroundColor="#BEBEBE" HeightRequest="30"
+        <Button Text="다음에 하기" BackgroundColor="#BEBEBE" HeightRequest="45"
                 Style="{StaticResource DefaultButtonStype}" Command="{Binding CancelCreateInside}" />
     </StackLayout>
 </ContentPage>

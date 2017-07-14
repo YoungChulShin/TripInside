@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using TripInside.ViewModel.Trip;
 using Xamarin.Forms;
 
 namespace TripInside.View.Trip
@@ -10,6 +10,7 @@ namespace TripInside.View.Trip
         public TripInsideView()
         {
             InitializeComponent();
+            BindingContext = new TripInsideViewModel(this.Navigation);
         }
     }
 }

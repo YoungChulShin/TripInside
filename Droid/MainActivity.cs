@@ -8,6 +8,9 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
+//using Xamarin.Forms.Platform.Android;
+
+
 namespace TripInside.Droid
 {
     [Activity(Label = "TripInside.Droid", Icon = "@drawable/icon", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
@@ -21,6 +24,7 @@ namespace TripInside.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+           // global::Xamarin.FormsMaps.Init(this, bundle);
 
             LoadApplication(new App());
         }

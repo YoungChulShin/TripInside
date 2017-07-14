@@ -15,7 +15,8 @@ namespace TripInside.View.Trip
 
 		void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
 		{
-            Navigation.PushModalAsync(new CreateInsideView());
+            //Navigation.PushModalAsync(new CreateInsideView());
+            Navigation.PushModalAsync(new TripInsideView());
         }
     }
 }

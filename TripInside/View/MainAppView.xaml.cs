@@ -12,7 +12,7 @@ namespace TripInside.View
         {
             InitializeComponent();
 
-            Children.Add(new NavigationPage(new TripListView()) { Title = "여행 기록",  });
+            Children.Add(new NavigationPage(new TripListView()) { Title = "여행 기록"  });
             Children.Add(new NavigationPage(new SettingView()) { Title = "설정" });
         }
     }

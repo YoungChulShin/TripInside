@@ -11,14 +11,18 @@
                 <Setter Property="FontSize" Value="13" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="BorderColor" Value="Black" />
-                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="BorderWidth" Value="2" />
                 <Setter Property="BackgroundColor" Value="White" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     
-    <StackLayout>
-        <Grid BackgroundColor="#1ABC9C" Padding="10,10,10,10" HeightRequest="35">
+    <StackLayout Margin="0" Padding="0" Spacing="0">
+        <StackLayout Orientation="Horizontal" BackgroundColor="#1ABC9C">
+            <Button Text="Back" Command="{Binding MoveBack}" />
+        </StackLayout>
+        
+        <Grid BackgroundColor="#1ABC9C" Padding="10,10,10,10" HeightRequest="35" Margin="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="10" />

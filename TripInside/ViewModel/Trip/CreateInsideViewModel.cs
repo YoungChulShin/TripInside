@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Plugin.Geolocator;
+using System;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 
 namespace TripInside.ViewModel.Trip
 {
@@ -12,11 +14,15 @@ namespace TripInside.ViewModel.Trip
         private readonly string _weather_rainy = "WeatherRainy";
         private readonly string _weather_snowy = "WeatherSnowy";
         private string _currentWeather = string.Empty;
+        private string _gpsLocation = string.Empty;
+        private Geocoder _geoCoder;
 
         public CreateInsideViewModel(INavigation navigation)
         {
             _navigation = navigation;
+            _geoCoder = new Geocoder();
             _currentWeather = _weather_sunny;
+            
             OnPropertyChanged(_currentWeather);
         }
 
@@ -183,6 +189,59 @@ namespace TripInside.ViewModel.Trip
                         _currentWeather = _weather_snowy;
                     }
                 });
+            }
+        }
+
+        public ICommand GetGPSLocation
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    var locator = CrossGeolocator.Current;
+                    locator.DesiredAccuracy = 50;
+
+                    var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(10));
+                    if (position == null)
+                    {
+                        GPSLocation = "Empty";
+                    }
+                    else
+                    {
+                        string tempLocation = string.Empty;
+                        var currentPosition = new Position(position.Latitude, position.Longitude);
+                        try
+                        {
+
+                            var possibleAddresses = await _geoCoder.GetAddressesForPositionAsync(currentPosition);
+                            foreach (var a in possibleAddresses)
+                            {
+                                tempLocation += a + "\n";
+                            }
+
+                            GPSLocation = tempLocation;
+                        }
+                        catch (Exception ex)
+                        {
+
+                        }
+
+                  
+                    }
+                });
+            }
+        }
+
+        public string GPSLocation
+        {
+            get
+            {
+                return _gpsLocation;
+            }
+            set
+            {
+                _gpsLocation = value;
+                OnPropertyChanged();
             }
         }
     }
