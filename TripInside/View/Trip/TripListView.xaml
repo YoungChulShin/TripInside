@@ -35,7 +35,7 @@
                                         <RowDefinition Height="40" />
                                         <RowDefinition Height="10" />
                                     </Grid.RowDefinitions>
-                                    <Frame Grid.Row="0" HasShadow="false" BackgroundColor="#1ABC9C" Padding="0">
+                                    <Frame Grid.Row="0" HasShadow="false" BackgroundColor="#1ABC9C" Padding="0" >
                                         <Grid Margin="10,0,0,0">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="30" />

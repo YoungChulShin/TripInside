@@ -321,8 +321,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Database\TripHistoryDataAccess.cs" />
+    <Compile Include="Models\DBModels\TripHistory.cs" />
+    <Compile Include="Models\TripHistoryInfo.cs" />
     <Compile Include="Models\TripInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\WeatherType.cs" />
     <Compile Include="ViewModel\Trip\InsideViewModel.cs" />
     <Compile Include="View\MainLoadingView.xaml.cs">
       <DependentUpon>MainLoadingView.xaml</DependentUpon>
