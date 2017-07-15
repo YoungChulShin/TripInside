@@ -294,7 +294,7 @@
     <EmbeddedResource Include="Resources\Images\NationalFlag\za.gif" />
     <EmbeddedResource Include="Resources\Images\NationalFlag\zm.gif" />
     <EmbeddedResource Include="Resources\Images\NationalFlag\zw.gif" />
-    <EmbeddedResource Include="View\Trip\TripInsideView.xaml">
+    <EmbeddedResource Include="View\Trip\InsideView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Trip\CreateInsideView.xaml">
@@ -323,7 +323,7 @@
     </Compile>
     <Compile Include="Models\TripInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\Trip\TripInsideViewModel.cs" />
+    <Compile Include="ViewModel\Trip\InsideViewModel.cs" />
     <Compile Include="View\MainLoadingView.xaml.cs">
       <DependentUpon>MainLoadingView.xaml</DependentUpon>
     </Compile>
@@ -332,6 +332,15 @@
     </Compile>
     <Compile Include="View\Setting\SettingView.xaml.cs">
       <DependentUpon>SettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Trip\InsideMapView.xaml.cs">
+      <DependentUpon>InsideMapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Trip\InsidePictureView.xaml.cs">
+      <DependentUpon>InsidePictureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Trip\InsideStoryView.xaml.cs">
+      <DependentUpon>InsideStoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Trip\TripListView.xaml.cs">
       <DependentUpon>TripListView.xaml</DependentUpon>
@@ -354,8 +363,8 @@
     <Compile Include="Models\DBModels\Trip.cs" />
     <Compile Include="Models\DBModels\Nation.cs" />
     <Compile Include="Database\NationDataAccess.cs" />
-    <Compile Include="View\Trip\TripInsideView.xaml.cs">
-      <DependentUpon>TripInsideView.xaml</DependentUpon>
+    <Compile Include="View\Trip\InsideView.xaml.cs">
+      <DependentUpon>InsideView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Trip\CreateInsideView.xaml.cs">
       <DependentUpon>CreateInsideView.xaml</DependentUpon>
@@ -403,6 +412,30 @@
     <Reference Include="SQLite-net">
       <HintPath>..\packages\sqlite-net-pcl.1.3.3\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\Controls\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\Controls\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\Trip\InsideStoryView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\Trip\InsidePictureView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\Trip\InsideMapView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

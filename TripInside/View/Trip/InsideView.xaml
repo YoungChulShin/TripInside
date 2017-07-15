@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TripInside.View.Trip.InsideView"
+             Title="베트남 가족여행">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="DefaultButtonStype" TargetType="Button">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="BorderColor" Value="Black" />
+                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <StackLayout Spacing="0" BackgroundColor="White">
+        <StackLayout Orientation="Horizontal" BackgroundColor="#1ABC9C" HeightRequest="30" Padding="0,10,0,0">
+            <Image Source="{Binding BackImage}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding MoveBack}" />
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+        <Grid BackgroundColor="#1ABC9C" Padding="10,10,10,10" HeightRequest="35" Margin="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Text="이야기 보기" 
+                    Style="{StaticResource DefaultButtonStype}" 
+                    Command="{Binding ViewInsideStory}"/>
+            <Button Grid.Column="2" Text="사진 보기"
+                    Style="{StaticResource DefaultButtonStype}" 
+                    Command="{Binding ViewPictureStory}"/>
+            <Button Grid.Column="4" Text="지도 보기" 
+                    Style="{StaticResource DefaultButtonStype}"
+                    Command="{Binding ViewMapStory}"/>
+        </Grid>
+        <Frame Content="{Binding CurrentView}" HasShadow="false" VerticalOptions="FillAndExpand" />
+        <StackLayout Orientation="Horizontal" BackgroundColor="White" HeightRequest="30" HorizontalOptions="End"
+                     Padding="0,0,10,10">
+            <Image Source="{Binding AddImage}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddNew}" />
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

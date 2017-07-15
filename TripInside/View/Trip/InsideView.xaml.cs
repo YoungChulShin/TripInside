@@ -5,12 +5,12 @@ using Xamarin.Forms;
 
 namespace TripInside.View.Trip
 {
-    public partial class TripInsideView : ContentPage
+    public partial class InsideView : ContentPage
     {
-        public TripInsideView()
+        public InsideView()
         {
             InitializeComponent();
-            BindingContext = new TripInsideViewModel(this.Navigation);
+            BindingContext = new InsideViewModel(this.Navigation);
         }
     }
 }

@@ -213,20 +213,20 @@ namespace TripInside.ViewModel.Trip
                         try
                         {
 
-                            var possibleAddresses = await _geoCoder.GetAddressesForPositionAsync(currentPosition);
-                            foreach (var a in possibleAddresses)
-                            {
-                                tempLocation += a + "\n";
-                            }
+                            //var possibleAddresses = await _geoCoder.GetAddressesForPositionAsync(currentPosition);
+                            //foreach (var a in possibleAddresses)
+                            //{
+                            //    tempLocation += a + "\n";
+                            //}
 
-                            GPSLocation = tempLocation;
+                            //GPSLocation = tempLocation;
+
+                            GPSLocation = position.Latitude.ToString() + " " + position.Longitude.ToString();
                         }
                         catch (Exception ex)
                         {
-
+                            GPSLocation = "Can't get location";
                         }
-
-                  
                     }
                 });
             }
