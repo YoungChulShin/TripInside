@@ -15,7 +15,7 @@ namespace TripInside.Database
         {
             _database = DependencyService.Get<IDatabaseConnection>().DbConnection();
 			_database.CreateTable<Trip>();
-            _database.CreateTable<TripHistory>();
+           // _database.CreateTable<TripHistory>();
         }
 
         public static int SaveTrip(Trip tripInstance)

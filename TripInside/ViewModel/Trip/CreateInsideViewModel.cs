@@ -231,7 +231,6 @@ namespace TripInside.ViewModel.Trip
                 });
             }
         }
-
         public string GPSLocation
         {
             get

@@ -50,7 +50,7 @@
                 </Image.GestureRecognizers>
             </Image>
         </Grid>
-        <Grid Padding="0,0,0,0" HorizontalOptions="End">
+        <!--<Grid Padding="0,0,0,0" HorizontalOptions="End">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="25" />
                 <ColumnDefinition Width="25" />
@@ -59,7 +59,7 @@
             <Image Grid.Column="0" Source="{Binding EmotionHappiness}" />
             <Image Grid.Column="1" Source="{Binding EmotionSad}" />
             <Image Grid.Column="2" Source="{Binding EmotionAngry}" />
-        </Grid>
+        </Grid>-->
 
         <Frame HasShadow="false" BackgroundColor="Silver" Padding="1" VerticalOptions="FillAndExpand">
             <Editor VerticalOptions="FillAndExpand" Keyboard="Chat" BackgroundColor="White"/>
@@ -75,6 +75,20 @@
                 </Image.GestureRecognizers>
             </Image>
             <Label Grid.Column="1" Text="{Binding GPSLocation}" FontSize="13" VerticalTextAlignment="Center" />
+        </Grid>
+        <Grid HeightRequest="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
+            </Grid.ColumnDefinitions>
+            <Image BackgroundColor="Red" Grid.Column="0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Image BackgroundColor="Blue" Grid.Column="1" />
+            <Image BackgroundColor="Green" Grid.Column="2" />
         </Grid>
         <Button Text="기록 하기" BackgroundColor="#1ABC9C" HeightRequest="45" 
                 Style="{StaticResource DefaultButtonStype}" />
