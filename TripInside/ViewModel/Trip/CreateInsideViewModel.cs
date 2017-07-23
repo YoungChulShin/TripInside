@@ -22,6 +22,7 @@ namespace TripInside.ViewModel.Trip
         private string _currentWeather = string.Empty;
         private string _gpsLocation = string.Empty;
         private Geocoder _geoCoder;
+        private string _storyText = string.Empty;
 
         public CreateInsideViewModel(INavigation navigation)
         {
@@ -31,8 +32,8 @@ namespace TripInside.ViewModel.Trip
 
             MessagingCenter.Subscribe<CreateInsideView, Stream>(this, "UpdateCameraPicture", (sender, arg) =>
             {
-                Picture1 = ImageSource.FromStream(() => arg);
-                //Picture1 = ImageSource.FromResource("TripInside.Resources.Images.Weathers.sun_selected.png");
+                //Picture1 = ImageSource.FromStream(() => arg);
+                Picture1 = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest.jpg");
             });
 
             OnPropertyChanged(_currentWeather);
@@ -284,6 +285,26 @@ namespace TripInside.ViewModel.Trip
                {
                    await _navigation.PushModalAsync(new CreateInsideCameraView(null, 0));
                });
+            }
+        }
+
+        public string StoryText
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(_storyText))
+                {
+                    return "이야기를 입력 해 주세요";
+                }
+                else
+                {
+                    return _storyText;
+                }
+            }
+            set
+            {
+                _storyText = value;
+                OnPropertyChanged();
             }
         }
     }

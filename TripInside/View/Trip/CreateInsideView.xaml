@@ -3,7 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
             x:Class="TripInside.View.Trip.CreateInsideView"
             BackgroundColor="White"
-            Padding="0,20,0,25">
+            Padding="0,0,0,5">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="DefaultFontStyle" TargetType="Label">
@@ -17,7 +17,7 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <StackLayout Orientation="Vertical" Padding="10,20,10,20">
+    <StackLayout Orientation="Vertical" Padding="10,5,10,5">
         <Grid Padding="0,10,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200" />
@@ -27,7 +27,7 @@
                 <ColumnDefinition Width="30" />
                 <ColumnDefinition Width="30" />
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Text="2017.06.10  20:09" TextColor="#1ABC9C" FontSize="16" FontAttributes="Bold" VerticalTextAlignment="Center" />
+            <Label Grid.Column="0" Text="2017.06.10  20:09" TextColor="Black" FontSize="16" FontAttributes="Bold" VerticalTextAlignment="Center" />
             <Image x:name="imgSun" Grid.Column="2" Source="{Binding WeatherSunny}">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding SetWeatherToSunny}" />
@@ -60,9 +60,11 @@
             <Image Grid.Column="2" Source="{Binding EmotionAngry}" />
         </Grid>-->
 
-        <Frame HasShadow="false" BackgroundColor="Silver" Padding="1" VerticalOptions="FillAndExpand">
+        <!--<Frame HasShadow="false" BackgroundColor="Silver" Padding="1" VerticalOptions="FillAndExpand">
             <Editor VerticalOptions="FillAndExpand" Keyboard="Chat" BackgroundColor="White"/>
-        </Frame>
+        </Frame>-->
+        <!--<Editor Text="{Binding StoryText}" TextColor="{Binding StoryTextColor}" VerticalOptions="FillAndExpand" Keyboard="Chat" BackgroundColor="White"/>-->
+        <Editor VerticalOptions="FillAndExpand" Keyboard="Chat" BackgroundColor="White"/>
         <Grid Padding="0,10,0,10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="30" />
