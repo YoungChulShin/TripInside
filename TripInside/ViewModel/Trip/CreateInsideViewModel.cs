@@ -1,6 +1,11 @@
 ﻿using Plugin.Geolocator;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Windows.Input;
+using TripInside.Models;
+using TripInside.View.Trip;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 
@@ -9,6 +14,7 @@ namespace TripInside.ViewModel.Trip
     public class CreateInsideViewModel : BaseViewModel
     {
         private INavigation _navigation;
+        private ImageSource _picture1;
         private readonly string _weather_sunny = "WeatherSunny";
         private readonly string _weather_cloudy = "WeatherCloudy";
         private readonly string _weather_rainy = "WeatherRainy";
@@ -22,8 +28,27 @@ namespace TripInside.ViewModel.Trip
             _navigation = navigation;
             _geoCoder = new Geocoder();
             _currentWeather = _weather_sunny;
-            
+
+            MessagingCenter.Subscribe<CreateInsideView, Stream>(this, "UpdateCameraPicture", (sender, arg) =>
+            {
+                Picture1 = ImageSource.FromStream(() => arg);
+                //Picture1 = ImageSource.FromResource("TripInside.Resources.Images.Weathers.sun_selected.png");
+            });
+
             OnPropertyChanged(_currentWeather);
+        }
+
+        public ImageSource Picture1
+        {
+            get
+            {
+                return _picture1;
+            }
+            set
+            {
+                _picture1 = value;
+                OnPropertyChanged();
+            }
         }
 
         public ImageSource WeatherSunny
@@ -119,8 +144,15 @@ namespace TripInside.ViewModel.Trip
 				return ImageSource.FromResource("TripInside.Resources.Images.Weathers.checkin.png");
 			}
 		}
+        public ImageSource Camera
+        {
+            get
+            {
+                return ImageSource.FromResource("TripInside.Resources.Images.Weathers.camera.png");
+            }
+        }
 
-		public ICommand CancelCreateInside
+        public ICommand CancelCreateInside
 		{
 			get
 			{
@@ -241,6 +273,17 @@ namespace TripInside.ViewModel.Trip
             {
                 _gpsLocation = value;
                 OnPropertyChanged();
+            }
+        }
+
+        public ICommand ManagePicture
+        {
+            get
+            {
+                return new Command(async () =>
+               {
+                   await _navigation.PushModalAsync(new CreateInsideCameraView(null, 0));
+               });
             }
         }
     }

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TripInside.View.Trip.CreateInsideCameraView">
+    <StackLayout Orientation="Vertical" >
+        <Grid VerticalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="30" />
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Source="{Binding BackwardImage}" VerticalOptions="Center" BackgroundColor="Blue"/>
+            <Image Grid.Column="1" Source="{Binding CurrentImage}"  BackgroundColor="Red" />
+            <Image Grid.Column="2" Source="{Binding ForwardImage}" VerticalOptions="Center" BackgroundColor="Blue"/>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Text="찍기" />
+            <Button Grid.Column="1" Text="가져오기" Command="{Binding GetPictureFromGallery}"/>
+            <Button Grid.Column="2" Text="삭제" />
+        </Grid>
+        <Button Text="돌아가기" Command="{Binding MoveBack}"/>
+    </StackLayout>
+</ContentPage>

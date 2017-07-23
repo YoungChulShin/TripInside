@@ -18,7 +18,6 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout Orientation="Vertical" Padding="10,20,10,20">
-        <Label Text="새로운 기록 추가" HorizontalOptions="Center"/>
         <Grid Padding="0,10,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200" />
@@ -76,20 +75,14 @@
             </Image>
             <Label Grid.Column="1" Text="{Binding GPSLocation}" FontSize="13" VerticalTextAlignment="Center" />
         </Grid>
-        <Grid HeightRequest="30">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="30" />
-                <ColumnDefinition Width="30" />
-                <ColumnDefinition Width="30" />
-            </Grid.ColumnDefinitions>
-            <Image BackgroundColor="Red" Grid.Column="0">
+        <StackLayout Orientation="Horizontal" HeightRequest="30">
+            <Image Source="{Binding Camera}" />
+            <Image Source="{Binding Picture1}" BackgroundColor="White" WidthRequest="30" Aspect="AspectFit">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    <TapGestureRecognizer Command="{Binding ManagePicture}" />
                 </Image.GestureRecognizers>
             </Image>
-            <Image BackgroundColor="Blue" Grid.Column="1" />
-            <Image BackgroundColor="Green" Grid.Column="2" />
-        </Grid>
+        </StackLayout>
         <Button Text="기록 하기" BackgroundColor="#1ABC9C" HeightRequest="45" 
                 Style="{StaticResource DefaultButtonStype}" />
         <Button Text="다음에 하기" BackgroundColor="#BEBEBE" HeightRequest="45"
