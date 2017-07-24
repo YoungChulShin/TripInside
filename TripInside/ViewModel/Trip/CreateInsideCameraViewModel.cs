@@ -31,26 +31,26 @@ namespace TripInside.ViewModel.Trip
 
 
             _items = new ObservableCollection<CameraGallery>();
-            _items.Add(new CameraGallery()
-            {
-                CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest.jpg")
-            });
-            _items.Add(new CameraGallery()
-            {
-                CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest2.jpg")
-            });
-            _items.Add(new CameraGallery()
-            {
-                CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest3.jpg")
-            });
-            _items.Add(new CameraGallery()
-            {
-                CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest4.jpg")
-            });
-            _items.Add(new CameraGallery()
-            {
-                CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest5.jpg")
-            });
+            //_items.Add(new CameraGallery()
+            //{
+            //    CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest.jpg")
+            //});
+            //_items.Add(new CameraGallery()
+            //{
+            //    CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest2.jpg")
+            //});
+            //_items.Add(new CameraGallery()
+            //{
+            //    CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest3.jpg")
+            //});
+            //_items.Add(new CameraGallery()
+            //{
+            //    CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest4.jpg")
+            //});
+            //_items.Add(new CameraGallery()
+            //{
+            //    CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest5.jpg")
+            //});
             OnPropertyChanged("Items");
         }
 
@@ -109,16 +109,30 @@ namespace TripInside.ViewModel.Trip
             }
         }
 
-        public ICommand MoveBack
+        //public ICommand MoveBack
+        //{
+        //    get
+        //    {
+        //        return new Command(x =>
+        //        {
+        //           MessagingCenter.Send<CreateInsideView, Stream>(
+        //               new CreateInsideView(), "UpdateCameraPicture", _stream);
+                   
+        //           _navigation.PopModalAsync();
+        //        });
+        //    }
+        //}
+
+        public ICommand RemoveItem
         {
             get
             {
                 return new Command(x =>
                 {
-                   MessagingCenter.Send<CreateInsideView, Stream>(
-                       new CreateInsideView(), "UpdateCameraPicture", _stream);
-                   
-                   _navigation.PopModalAsync();
+                    if (_selectedItem != null)
+                    {
+                        Items.Remove(_selectedItem);
+                    }
                 });
             }
         }
@@ -129,10 +143,12 @@ namespace TripInside.ViewModel.Trip
             {
                 return new Command(async () =>
                 {
-
                     _stream = await DependencyService.Get<IPicturePicker>().GetImageStreamAsync();
-                    CurrentImage = ImageSource.FromStream(() => _stream);
-                    
+
+                    Items.Add(new CameraGallery()
+                    {
+                        CameraPicture = ImageSource.FromStream(() => _stream)
+                    });
                 });
             }
         }

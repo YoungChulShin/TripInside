@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TripInside.View.Trip.CreateInsideCameraView">
+             x:Class="TripInside.View.Trip.CreateInsideCameraView" 
+             x:Name="CreateInsideCameraView">
     <StackLayout Orientation="Vertical" >
         
         <!--<Grid VerticalOptions="FillAndExpand">
@@ -28,7 +29,7 @@
                             <Image Grid.Row="0" Source="{Binding CameraPicture}" Aspect="AspectFill" />
                             <Image Grid.Row="0" Aspect="AspectFit" HorizontalOptions="End" VerticalOptions="Start" Source="{Binding DeletePicture}" HeightRequest="30" Margin="0,0,10,0">
                                 <Image.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding MoveBack}" />
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.RemoveItem, Source={x:Reference CreateInsideCameraView}}" />
                                 </Image.GestureRecognizers>
                             </Image>
                         </Grid>
