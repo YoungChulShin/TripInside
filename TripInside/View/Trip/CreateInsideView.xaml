@@ -54,9 +54,15 @@
             <Editor VerticalOptions="FillAndExpand" Keyboard="Chat" BackgroundColor="White"/>
         </Frame>-->
         <Editor VerticalOptions="FillAndExpand" Keyboard="Chat" BackgroundColor="White"/>
-        <StackLayout Orientation="Horizontal" HeightRequest="50" IsVisible="{Binding ViewPictures}">
-            <Image Source="{Binding Picture1}" BackgroundColor="White" Aspect="AspectFit" />
-        </StackLayout>
+        <ScrollView Orientation="Horizontal" IsVisible="{Binding ViewPictures}">
+            <StackLayout Orientation="Horizontal" HeightRequest="70" >
+                <Image Source="{Binding Picture1}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture1}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture1}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture1}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture1}" BackgroundColor="White" Aspect="AspectFit" />
+            </StackLayout>
+        </ScrollView>
         <!--<Grid Padding="0,10,0,10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="30" />
@@ -70,21 +76,21 @@
             <Label Grid.Column="1" Text="{Binding GPSLocation}" FontSize="13" VerticalTextAlignment="Center" />
         </Grid>-->
         <StackLayout Orientation="Horizontal" HeightRequest="30">
-            <Image Grid.Column="0" Source="{Binding Compass}" >
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding GetGPSLocation}" />
-                </Image.GestureRecognizers>
-            </Image>
             <Image Source="{Binding Camera}">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding ManagePicture}" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Source="{Binding Compass}" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GetGPSLocation}" />
                 </Image.GestureRecognizers>
             </Image>
             <Label Text="{Binding GPSLocation}" FontSize="13" />
         </StackLayout>
         <Button Text="기록 하기" BackgroundColor="#1ABC9C" HeightRequest="45" 
                 Style="{StaticResource DefaultButtonStype}" />
-        <!--<Button Text="다음에 하기" BackgroundColor="#BEBEBE" HeightRequest="45"
-                Style="{StaticResource DefaultButtonStype}" Command="{Binding CancelCreateInside}" />-->
+        <Button Text="다음에 하기" BackgroundColor="#BEBEBE" HeightRequest="45"
+                Style="{StaticResource DefaultButtonStype}" Command="{Binding CancelCreateInside}" />
     </StackLayout>
 </ContentPage>

@@ -60,8 +60,8 @@ namespace TripInside.ViewModel.Trip
             {
                 return new Command(async () =>
                 {
-                    //await _navigation.PushModalAsync(new CreateInsideView());
-                    await _navigation.PushAsync(new CreateInsideView());
+                    await _navigation.PushModalAsync(new NavigationPage(new CreateInsideView()));
+                    //await _navigation.PushAsync(new CreateInsideView());
                 });
             }
         }

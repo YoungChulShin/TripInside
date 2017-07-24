@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,31 +15,84 @@ namespace TripInside.ViewModel.Trip
 {
     public class CreateInsideCameraViewModel : BaseViewModel
     {
+        private ObservableCollection<CameraGallery> _items;
         private INavigation _navigation;
         private List<Image> _images;
         private int _imageIndex;
         private ImageSource _currentImage;
         private Stream _stream;
+        private CameraGallery _selectedItem;
+
         public CreateInsideCameraViewModel(INavigation navigaion, List<Image> images, int index)
         {
             _navigation = navigaion;
             _imageIndex = index;
             _images = images;
+
+
+            _items = new ObservableCollection<CameraGallery>();
+            _items.Add(new CameraGallery()
+            {
+                CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest.jpg")
+            });
+            _items.Add(new CameraGallery()
+            {
+                CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest2.jpg")
+            });
+            _items.Add(new CameraGallery()
+            {
+                CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest3.jpg")
+            });
+            _items.Add(new CameraGallery()
+            {
+                CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest4.jpg")
+            });
+            _items.Add(new CameraGallery()
+            {
+                CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest5.jpg")
+            });
+            OnPropertyChanged("Items");
         }
 
-        public ImageSource BackwardImage
+        public ObservableCollection<CameraGallery> Items
         {
             get
             {
-                return ImageSource.FromResource("TripInside.Resources.Images.Controls.backward.png");
+                return _items;
+            }
+            set
+            {
+                _items = value;
+                OnPropertyChanged();
             }
         }
 
-        public ImageSource ForwardImage
+        public CameraGallery SelectedItem
         {
             get
             {
-                return ImageSource.FromResource("TripInside.Resources.Images.Controls.forward.png");
+                return _selectedItem;
+            }
+            set
+            {
+                _selectedItem = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ImageSource TakePicture
+        {
+            get
+            {
+                return ImageSource.FromResource("TripInside.Resources.Images.Weathers.takepicture.png");
+            }
+        }
+
+        public ImageSource Gallery
+        {
+            get
+            {
+                return ImageSource.FromResource("TripInside.Resources.Images.Weathers.gallery.png");
             }
         }
 

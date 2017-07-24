@@ -11,18 +11,19 @@ namespace TripInside.View.Trip
     {
         public CreateInsideView()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
+
             InitializeComponent();
             BindingContext = new CreateInsideViewModel(this.Navigation);
         }
+        //private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        //{
+        //    var action = await DisplayActionSheet("이미지 동작", "취소", null, "사진 찍기", "사진 가져오기");
 
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-            var action = await DisplayActionSheet("이미지 동작", "취소", null, "사진 찍기", "사진 가져오기");
-
-            if (action == "사진 가져오기")
-            {
-                var result = await DependencyService.Get<IPicturePicker>().GetImageStreamAsync();
-            }
-        }
+        //    if (action == "사진 가져오기")
+        //    {
+        //        var result = await DependencyService.Get<IPicturePicker>().GetImageStreamAsync();
+        //    }
+        //}
     }
 }

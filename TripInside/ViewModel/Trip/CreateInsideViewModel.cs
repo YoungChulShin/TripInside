@@ -299,7 +299,7 @@ namespace TripInside.ViewModel.Trip
             {
                 return new Command(async () =>
                {
-                   await _navigation.PushModalAsync(new CreateInsideCameraView(null, 0));
+                   await _navigation.PushAsync(new CreateInsideCameraView(null, 0));
                });
             }
         }
