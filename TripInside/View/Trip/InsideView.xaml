@@ -18,13 +18,13 @@
     </ContentPage.Resources>
     
     <StackLayout Spacing="0" BackgroundColor="White">
-        <StackLayout Orientation="Horizontal" BackgroundColor="#1ABC9C" HeightRequest="30" Padding="0,10,0,0">
+        <!--<StackLayout Orientation="Horizontal" BackgroundColor="#1ABC9C" HeightRequest="30" Padding="0,10,0,0">
             <Image Source="{Binding BackImage}">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding MoveBack}" />
                 </Image.GestureRecognizers>
             </Image>
-        </StackLayout>
+        </StackLayout>-->
         <Grid BackgroundColor="#1ABC9C" Padding="10,10,10,10" HeightRequest="35" Margin="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />

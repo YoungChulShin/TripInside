@@ -328,6 +328,7 @@
     <Compile Include="Models\TripHistoryPicture.cs" />
     <Compile Include="Models\TripInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\NavigationService.cs" />
     <Compile Include="Types\WeatherType.cs" />
     <Compile Include="ViewModel\Trip\CreateInsideCameraViewModel.cs" />
     <Compile Include="ViewModel\Trip\InsideViewModel.cs" />

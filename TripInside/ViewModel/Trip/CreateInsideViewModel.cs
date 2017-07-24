@@ -23,6 +23,7 @@ namespace TripInside.ViewModel.Trip
         private string _gpsLocation = string.Empty;
         private Geocoder _geoCoder;
         private string _storyText = string.Empty;
+        private bool _viewPictures = false;
 
         public CreateInsideViewModel(INavigation navigation)
         {
@@ -34,10 +35,25 @@ namespace TripInside.ViewModel.Trip
             {
                 //Picture1 = ImageSource.FromStream(() => arg);
                 Picture1 = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest.jpg");
+                ViewPictures = true;
             });
 
             OnPropertyChanged(_currentWeather);
         }
+
+        public bool ViewPictures
+        {
+            get
+            {
+                return _viewPictures;
+            }
+            set
+            {
+                _viewPictures = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         public ImageSource Picture1
         {

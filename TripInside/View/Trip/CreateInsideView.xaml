@@ -49,23 +49,15 @@
                 </Image.GestureRecognizers>
             </Image>
         </Grid>
-        <!--<Grid Padding="0,0,0,0" HorizontalOptions="End">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="25" />
-                <ColumnDefinition Width="25" />
-                <ColumnDefinition Width="25" />
-            </Grid.ColumnDefinitions>
-            <Image Grid.Column="0" Source="{Binding EmotionHappiness}" />
-            <Image Grid.Column="1" Source="{Binding EmotionSad}" />
-            <Image Grid.Column="2" Source="{Binding EmotionAngry}" />
-        </Grid>-->
 
         <!--<Frame HasShadow="false" BackgroundColor="Silver" Padding="1" VerticalOptions="FillAndExpand">
             <Editor VerticalOptions="FillAndExpand" Keyboard="Chat" BackgroundColor="White"/>
         </Frame>-->
-        <!--<Editor Text="{Binding StoryText}" TextColor="{Binding StoryTextColor}" VerticalOptions="FillAndExpand" Keyboard="Chat" BackgroundColor="White"/>-->
         <Editor VerticalOptions="FillAndExpand" Keyboard="Chat" BackgroundColor="White"/>
-        <Grid Padding="0,10,0,10">
+        <StackLayout Orientation="Horizontal" HeightRequest="50" IsVisible="{Binding ViewPictures}">
+            <Image Source="{Binding Picture1}" BackgroundColor="White" Aspect="AspectFit" />
+        </StackLayout>
+        <!--<Grid Padding="0,10,0,10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="30" />
                 <ColumnDefinition Width="*" />
@@ -76,18 +68,23 @@
                 </Image.GestureRecognizers>
             </Image>
             <Label Grid.Column="1" Text="{Binding GPSLocation}" FontSize="13" VerticalTextAlignment="Center" />
-        </Grid>
+        </Grid>-->
         <StackLayout Orientation="Horizontal" HeightRequest="30">
-            <Image Source="{Binding Camera}" />
-            <Image Source="{Binding Picture1}" BackgroundColor="White" WidthRequest="30" Aspect="AspectFit">
+            <Image Grid.Column="0" Source="{Binding Compass}" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GetGPSLocation}" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Source="{Binding Camera}">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding ManagePicture}" />
                 </Image.GestureRecognizers>
             </Image>
+            <Label Text="{Binding GPSLocation}" FontSize="13" />
         </StackLayout>
         <Button Text="기록 하기" BackgroundColor="#1ABC9C" HeightRequest="45" 
                 Style="{StaticResource DefaultButtonStype}" />
-        <Button Text="다음에 하기" BackgroundColor="#BEBEBE" HeightRequest="45"
-                Style="{StaticResource DefaultButtonStype}" Command="{Binding CancelCreateInside}" />
+        <!--<Button Text="다음에 하기" BackgroundColor="#BEBEBE" HeightRequest="45"
+                Style="{StaticResource DefaultButtonStype}" Command="{Binding CancelCreateInside}" />-->
     </StackLayout>
 </ContentPage>

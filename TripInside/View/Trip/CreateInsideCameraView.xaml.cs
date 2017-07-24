@@ -16,6 +16,7 @@ namespace TripInside.View.Trip
         {
             InitializeComponent();
             BindingContext = new CreateInsideCameraViewModel(this.Navigation, images, index);
+            
         }
     }
 }

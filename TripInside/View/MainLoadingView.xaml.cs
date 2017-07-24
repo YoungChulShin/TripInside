@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using TripInside.Service;
 using Xamarin.Forms;
 
 namespace TripInside.View
@@ -14,7 +14,12 @@ namespace TripInside.View
 
 		void Handle_Clicked(object sender, System.EventArgs e)
 		{
-            Application.Current.MainPage = new MainAppView();
+            // NavigationService.MainNavigation = this.Navigation;
+            Application.Current.MainPage = new NavigationPage(new MainAppView()
+            {
+                BarBackgroundColor = Color.FromHex("#3498DB"),
+                BarTextColor = Color.White
+            });
 		}
     }
 }

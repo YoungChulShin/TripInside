@@ -60,7 +60,8 @@ namespace TripInside.ViewModel.Trip
             {
                 return new Command(async () =>
                 {
-                    await _navigation.PushModalAsync(new CreateInsideView());
+                    //await _navigation.PushModalAsync(new CreateInsideView());
+                    await _navigation.PushAsync(new CreateInsideView());
                 });
             }
         }
@@ -73,7 +74,7 @@ namespace TripInside.ViewModel.Trip
                 {
                     if (_currentView.GetType().Equals(typeof(InsideStoryView)) == false)
                     {
-                        CurrentView = _storyView;
+                       CurrentView = _storyView;
                     }
                 });
             }
@@ -87,7 +88,7 @@ namespace TripInside.ViewModel.Trip
                 {
                     if (_currentView.GetType().Equals(typeof(InsidePictureView)) == false)
                     {
-                        CurrentView = _pictureView;
+                       CurrentView = _pictureView;
                     }
                 });
             }
@@ -101,7 +102,7 @@ namespace TripInside.ViewModel.Trip
                 {
                     if (_currentView.GetType().Equals(typeof(InsideMapView)) == false)
                     {
-                        CurrentView = _mapView;
+                       CurrentView = _mapView;
                     }
                 });
             }

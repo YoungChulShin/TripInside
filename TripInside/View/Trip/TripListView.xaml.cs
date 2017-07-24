@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TripInside.Service;
 using TripInside.ViewModel.Trip;
 using Xamarin.Forms;
 
@@ -15,8 +16,15 @@ namespace TripInside.View.Trip
 
 		void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
 		{
-            //Navigation.PushModalAsync(new CreateInsideView());
-            Navigation.PushModalAsync(new InsideView());
+            NavigationService.MainNavigation.PushAsync(new InsideView());
+           
+            //Navigation. PushAsync(new InsideView());
+            //Navigation.PushModalAsync(new NavigationPage(new InsideView())
+            //    {
+            //        BarBackgroundColor = Color.FromHex("#1ABC9C"),
+            //        Title = "새로운 이야기"
+            //    }
+            //);
         }
     }
 }
