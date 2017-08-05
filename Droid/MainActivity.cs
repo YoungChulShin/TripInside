@@ -21,6 +21,8 @@ namespace TripInside.Droid
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         public static readonly int PickImageId = 1000;
+        public static readonly int GetImageFromGallery = 1;
+        public static readonly int GetImageFromCamera = 2;
         public TaskCompletionSource<Stream> PickImageTaskCompletionSource { set; get; }
 
         protected override void OnCreate(Bundle bundle)
@@ -55,11 +57,12 @@ namespace TripInside.Droid
                     PickImageTaskCompletionSource.SetResult(null);
                 }
             }
-            else if (requestCode == 1)
+            else if (requestCode == GetImageFromGallery)
             {
                 if (resultCode == Result.Ok)
                 {
-                    if (data.Data != null)
+                    var result = data.GetByteArrayExtra("data");
+                    if (data .Data != null)
                     {
                         //Grab the Uri which is holding the path to the image
                         Android.Net.Uri uri = data.Data;
@@ -71,6 +74,24 @@ namespace TripInside.Droid
                         BitmapWorkerTask task = new BitmapWorkerTask(this.ContentResolver, uri);
                         task.Execute(orientation);
                     }
+                }
+            }
+            else if (requestCode == GetImageFromCamera)
+            {
+                if (resultCode == Result.Ok)
+                {
+                    var dir = new Java.IO.File(Android.OS.Environment.GetExternalStoragePublicDirectory(
+                          Android.OS.Environment.DirectoryPictures), "TripInside");
+
+                    var file = new Java.IO.File(dir, string.Format("tripInside{0}.jpg", "test"));
+                    Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
+                    Android.Net.Uri contentUri = Android.Net.Uri.FromFile(file);
+                    mediaScanIntent.SetData(contentUri);
+                    SendBroadcast(mediaScanIntent);
+
+                    int orientation = getOrientation(contentUri);
+                    BitmapWorkerTask task = new BitmapWorkerTask(this.ContentResolver, contentUri);
+                    task.Execute(orientation);
                 }
             }
         }

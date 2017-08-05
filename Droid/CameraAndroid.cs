@@ -1,7 +1,10 @@
 ﻿
 using Android.App;
 using Android.Content;
+using Android.Net;
+using Android.OS;
 using Android.Provider;
+using Java.IO;
 using TripInside.DependencyServices;
 using Xamarin.Forms;
 
@@ -18,7 +21,15 @@ namespace TripInside.Droid
         public void BringUpCamera()
         {
             var intent = new Intent(MediaStore.ActionImageCapture);
-            ((Activity)Forms.Context).StartActivityForResult(intent, 1);
+            var dir = new Java.IO.File(Environment.GetExternalStoragePublicDirectory(
+            Environment.DirectoryPictures), "TripInside");
+            
+            var file = new File(dir, string.Format("tripInside{0}.jpg", "test"));
+
+
+            intent.PutExtra(MediaStore.ExtraOutput, Uri.FromFile(file));
+
+            ((Activity)Forms.Context).StartActivityForResult(intent, 2);
         }
 
         public void BringUpPhotoGallery()
@@ -27,7 +38,11 @@ namespace TripInside.Droid
             imageIntent.SetType("image/*");
             imageIntent.SetAction(Intent.ActionGetContent);
 
-            ((Activity)Forms.Context).StartActivityForResult(Intent.CreateChooser(imageIntent, "Select photo"), 1);
+
+
+            var intent = Intent.CreateChooser(imageIntent, "Select photo");
+
+            ((Activity)Forms.Context).StartActivityForResult(intent, 1);
         }
     }
 }

@@ -33,7 +33,7 @@
             <StackLayout Orientation="Horizontal" VerticalOptions="Center" HeightRequest="45" HorizontalOptions="CenterAndExpand" BackgroundColor="Black" >
                 <Image Source="{Binding TakePicture}">
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ManagePicture}" />
+                        <TapGestureRecognizer Command="{Binding GetPictureFromCamera}" />
                     </Image.GestureRecognizers>
                 </Image>
                 <Image Source="{Binding Gallery}" >

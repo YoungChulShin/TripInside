@@ -20,11 +20,21 @@ namespace TripInside.ViewModel.Trip
         private List<Image> _images;
         private int _imageIndex;
         private ImageSource _currentImage;
-        private Stream _stream;
-        private CameraGallery _selectedItem;
 
         public CreateInsideCameraViewModel(INavigation navigaion, List<Image> images, int index)
         {
+            MessagingCenter.Subscribe<byte[]>(this, "ImageSelected", (args) =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    //Set the source of the image view with the byte array
+                    Items.Add(new CameraGallery()
+                    {
+                        CameraPicture = _currentImage = ImageSource.FromStream(() => new MemoryStream((byte[])args))
+                    });
+                });
+            });
+
             _navigation = navigaion;
             _imageIndex = index;
             _images = images;
@@ -105,23 +115,23 @@ namespace TripInside.ViewModel.Trip
         {
             get
             {
-                return new Command(async () =>
+                return new Command(() =>
                 {
-                    ImageSource image = await GetImageFromGalleary();
-                    Items.Add(new CameraGallery()
-                    {
-                        CameraPicture = image
-                    });
-                    MessagingCenter.Send<CreateInsideView, ImageSource>(new CreateInsideView(), "AddCameraPicture", image);
+                    DependencyService.Get<ICamera>().BringUpPhotoGallery();
+                    MessagingCenter.Send<CreateInsideView, ImageSource>(new CreateInsideView(), "AddCameraPicture", _currentImage);
                 });
             }
         }
 
-        private async Task<ImageSource> GetImageFromGalleary()
+        public ICommand GetPictureFromCamera
         {
-            Stream imageStream = await DependencyService.Get<IPicturePicker>().GetImageStreamAsync();
-          //  var result = imageStream.Length;
-            return ImageSource.FromStream(() => imageStream);
+            get
+            {
+                return new Command(() =>
+                {
+                    DependencyService.Get<ICamera>().BringUpCamera();
+                });
+            }
         }
     }
 }
