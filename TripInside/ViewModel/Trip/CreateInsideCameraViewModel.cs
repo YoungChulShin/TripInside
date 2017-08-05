@@ -23,17 +23,7 @@ namespace TripInside.ViewModel.Trip
 
         public CreateInsideCameraViewModel(INavigation navigaion, List<Image> images, int index)
         {
-            MessagingCenter.Subscribe<byte[]>(this, "ImageSelected", (args) =>
-            {
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    //Set the source of the image view with the byte array
-                    Items.Add(new CameraGallery()
-                    {
-                        CameraPicture = _currentImage = ImageSource.FromStream(() => new MemoryStream((byte[])args))
-                    });
-                });
-            });
+            
 
             _navigation = navigaion;
             _imageIndex = index;
@@ -41,6 +31,29 @@ namespace TripInside.ViewModel.Trip
 
 
             Items = new ObservableCollection<CameraGallery>();
+        }
+
+        public override void OnAppearing()
+        {
+            MessagingCenter.Subscribe<byte[]>(this, "ImageSelected", (args) =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    //Set the source of the image view with the byte array
+                    var tempImage = ImageSource.FromStream(() => new MemoryStream((byte[])args));
+
+                    Items.Add(new CameraGallery()
+                    {
+                        CameraPicture = tempImage
+                    });
+                    //MessagingCenter.Send<CreateInsideView, ImageSource>(new CreateInsideView(), "AddCameraPicture", tempImage);
+                });
+            });
+        }
+
+        public override void OnDisappearing()
+        {
+            MessagingCenter.Unsubscribe<byte[]>(this, "ImageSelected");
         }
 
         public ObservableCollection<CameraGallery> Items
@@ -118,7 +131,6 @@ namespace TripInside.ViewModel.Trip
                 return new Command(() =>
                 {
                     DependencyService.Get<ICamera>().BringUpPhotoGallery();
-                    MessagingCenter.Send<CreateInsideView, ImageSource>(new CreateInsideView(), "AddCameraPicture", _currentImage);
                 });
             }
         }

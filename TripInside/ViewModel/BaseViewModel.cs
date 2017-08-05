@@ -11,5 +11,14 @@ namespace TripInside.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
+        public virtual void OnAppearing()
+        {
+
+        }
+        public virtual void OnDisappearing()
+        {
+
+        }
     }
 }

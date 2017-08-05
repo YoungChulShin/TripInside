@@ -12,11 +12,28 @@ namespace TripInside.View.Trip
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreateInsideCameraView : ContentPage
     {
+        private CreateInsideCameraViewModel _createInsideCameraViewModel;
         public CreateInsideCameraView(List<Image> images, int index)
         {
             InitializeComponent();
-            BindingContext = new CreateInsideCameraViewModel(this.Navigation, images, index);
-            
+
+            _createInsideCameraViewModel = new CreateInsideCameraViewModel(this.Navigation, images, index);
+            BindingContext = _createInsideCameraViewModel;
+            //BindingContext = new CreateInsideCameraViewModel(this.Navigation, images, index);
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            _createInsideCameraViewModel.OnAppearing();
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            _createInsideCameraViewModel.OnDisappearing();
         }
     }
 }

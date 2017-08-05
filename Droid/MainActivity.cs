@@ -68,11 +68,11 @@ namespace TripInside.Droid
                         Android.Net.Uri uri = data.Data;
 
                         //Read the meta data of the image to determine what orientation the image should be in
-                        int orientation = getOrientation(uri);
+                        //int orientation = getOrientation(uri);
 
                         //Stat a background task so we can do all the bitmap stuff off the UI thread
                         BitmapWorkerTask task = new BitmapWorkerTask(this.ContentResolver, uri);
-                        task.Execute(orientation);
+                        task.Execute(0);
                     }
                 }
             }
@@ -89,9 +89,9 @@ namespace TripInside.Droid
                     mediaScanIntent.SetData(contentUri);
                     SendBroadcast(mediaScanIntent);
 
-                    int orientation = getOrientation(contentUri);
+                    //int orientation = getOrientation(contentUri);
                     BitmapWorkerTask task = new BitmapWorkerTask(this.ContentResolver, contentUri);
-                    task.Execute(orientation);
+                    task.Execute(0);
                 }
             }
         }
