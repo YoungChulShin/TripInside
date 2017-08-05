@@ -43,6 +43,14 @@ namespace TripInside.ViewModel.Trip
             }
         }
 
+        public ImageSource BackImage
+        {
+            get
+            {
+                return ImageSource.FromResource("TripInside.Resources.Images.Backgrounds.road.jpg");
+            }
+        }
+
         public DateTime FromDate
         {
             get

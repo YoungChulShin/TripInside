@@ -9,6 +9,8 @@ using Android.Widget;
 using Android.OS;
 using System.Threading.Tasks;
 using System.IO;
+using Android.Database;
+using Android.Provider;
 
 //using Xamarin.Forms.Platform.Android;
 
@@ -53,6 +55,37 @@ namespace TripInside.Droid
                     PickImageTaskCompletionSource.SetResult(null);
                 }
             }
+            else if (requestCode == 1)
+            {
+                if (resultCode == Result.Ok)
+                {
+                    if (data.Data != null)
+                    {
+                        //Grab the Uri which is holding the path to the image
+                        Android.Net.Uri uri = data.Data;
+
+                        //Read the meta data of the image to determine what orientation the image should be in
+                        int orientation = getOrientation(uri);
+
+                        //Stat a background task so we can do all the bitmap stuff off the UI thread
+                        BitmapWorkerTask task = new BitmapWorkerTask(this.ContentResolver, uri);
+                        task.Execute(orientation);
+                    }
+                }
+            }
+        }
+
+        public int getOrientation(Android.Net.Uri photoUri)
+        {
+            ICursor cursor = Application.ApplicationContext.ContentResolver.Query(photoUri, new String[] { MediaStore.Images.ImageColumns.Orientation }, null, null, null);
+
+            if (cursor.Count != 1)
+            {
+                return -1;
+            }
+
+            cursor.MoveToFirst();
+            return cursor.GetInt(0);
         }
     }
 }

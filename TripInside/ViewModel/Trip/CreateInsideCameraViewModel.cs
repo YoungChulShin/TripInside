@@ -30,28 +30,7 @@ namespace TripInside.ViewModel.Trip
             _images = images;
 
 
-            _items = new ObservableCollection<CameraGallery>();
-            //_items.Add(new CameraGallery()
-            //{
-            //    CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest.jpg")
-            //});
-            //_items.Add(new CameraGallery()
-            //{
-            //    CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest2.jpg")
-            //});
-            //_items.Add(new CameraGallery()
-            //{
-            //    CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest3.jpg")
-            //});
-            //_items.Add(new CameraGallery()
-            //{
-            //    CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest4.jpg")
-            //});
-            //_items.Add(new CameraGallery()
-            //{
-            //    CameraPicture = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest5.jpg")
-            //});
-            OnPropertyChanged("Items");
+            Items = new ObservableCollection<CameraGallery>();
         }
 
         public ObservableCollection<CameraGallery> Items
@@ -63,19 +42,6 @@ namespace TripInside.ViewModel.Trip
             set
             {
                 _items = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public CameraGallery SelectedItem
-        {
-            get
-            {
-                return _selectedItem;
-            }
-            set
-            {
-                _selectedItem = value;
                 OnPropertyChanged();
             }
         }
@@ -109,30 +75,28 @@ namespace TripInside.ViewModel.Trip
             }
         }
 
-        //public ICommand MoveBack
-        //{
-        //    get
-        //    {
-        //        return new Command(x =>
-        //        {
-        //           MessagingCenter.Send<CreateInsideView, Stream>(
-        //               new CreateInsideView(), "UpdateCameraPicture", _stream);
-                   
-        //           _navigation.PopModalAsync();
-        //        });
-        //    }
-        //}
-
         public ICommand RemoveItem
         {
             get
             {
-                return new Command(x =>
+                return new Command<CameraGallery>((parameter) =>
                 {
-                    if (_selectedItem != null)
+                    if (parameter.IsSelectedPicture)
                     {
-                        Items.Remove(_selectedItem);
+                        Items.RemoveAt(_items.IndexOf(parameter));
+                        MessagingCenter.Send<CreateInsideView, ImageSource>(new CreateInsideView(), "RemoveCameraPicture", parameter.CameraPicture);
                     }
+                });
+            }
+        }
+
+        public ICommand CheckItem
+        {
+            get
+            {
+                return new Command<CameraGallery>((parameter) =>
+                {
+                    Items[Items.IndexOf(parameter)].IsSelectedPicture = !parameter.IsSelectedPicture;
                 });
             }
         }
@@ -143,14 +107,21 @@ namespace TripInside.ViewModel.Trip
             {
                 return new Command(async () =>
                 {
-                    _stream = await DependencyService.Get<IPicturePicker>().GetImageStreamAsync();
-
+                    ImageSource image = await GetImageFromGalleary();
                     Items.Add(new CameraGallery()
                     {
-                        CameraPicture = ImageSource.FromStream(() => _stream)
+                        CameraPicture = image
                     });
+                    MessagingCenter.Send<CreateInsideView, ImageSource>(new CreateInsideView(), "AddCameraPicture", image);
                 });
             }
+        }
+
+        private async Task<ImageSource> GetImageFromGalleary()
+        {
+            Stream imageStream = await DependencyService.Get<IPicturePicker>().GetImageStreamAsync();
+          //  var result = imageStream.Length;
+            return ImageSource.FromStream(() => imageStream);
         }
     }
 }

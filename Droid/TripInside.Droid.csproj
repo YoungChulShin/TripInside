@@ -166,6 +166,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitmapWorkerTask.cs" />
+    <Compile Include="CameraAndroid.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="PicturePickerImplementation.cs" />

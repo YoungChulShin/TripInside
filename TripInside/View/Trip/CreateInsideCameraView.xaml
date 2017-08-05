@@ -4,51 +4,44 @@
              x:Class="TripInside.View.Trip.CreateInsideCameraView" 
              x:Name="CreateInsideCameraView">
     <StackLayout Orientation="Vertical" >
-        
-        <!--<Grid VerticalOptions="FillAndExpand">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="30" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="30" />
-            </Grid.ColumnDefinitions>
-            <Image Grid.Column="0" Source="{Binding BackwardImage}" VerticalOptions="Center" BackgroundColor="Blue"/>
-            <Image Grid.Column="1" Source="{Binding CurrentImage}"  BackgroundColor="Red" />
-            <Image Grid.Column="2" Source="{Binding ForwardImage}" VerticalOptions="Center" BackgroundColor="Blue"/>
-        </Grid>-->
-        <!--<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" >
-            <StackLayout >
-                <Image 
-            </StackLayout>
-        </ScrollView>-->
-
-        <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}"  RowHeight="250">
-            <ListView.ItemTemplate>
+        <ListView ItemsSource="{Binding Items}"  RowHeight="250">
+                <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Grid>
-                            <Image Grid.Row="0" Source="{Binding CameraPicture}" Aspect="AspectFill" />
-                            <Image Grid.Row="0" Aspect="AspectFit" HorizontalOptions="End" VerticalOptions="Start" Source="{Binding DeletePicture}" HeightRequest="30" Margin="0,0,10,0">
+                            <Image Grid.Row="0" Source="{Binding CameraPicture}" Aspect="AspectFill" >
                                 <Image.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.RemoveItem, Source={x:Reference CreateInsideCameraView}}" />
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.CheckItem, Source={x:Reference CreateInsideCameraView}}"
+                                                          CommandParameter="{Binding .}"/>
                                 </Image.GestureRecognizers>
                             </Image>
+                            <Image Grid.Row="0" Aspect="AspectFit" HorizontalOptions="End" VerticalOptions="Start" 
+                                   Source="{Binding DeletePicture}" HeightRequest="30" Margin="0,0,10,0">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.RemoveItem, Source={x:Reference CreateInsideCameraView}}"
+                                                          CommandParameter="{Binding .}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Image Grid.Row="0" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Start" 
+                                   Source="{Binding SelectedPicture}" IsVisible="{Binding IsSelectedPicture}" HeightRequest="30" Margin="10,0,0,0" />
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" BackgroundColor="Black" HeightRequest="50">
-            <Image Source="{Binding TakePicture}">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding ManagePicture}" />
-                </Image.GestureRecognizers>
-            </Image>
-            <Image Source="{Binding Gallery}" >
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding GetPictureFromGallery}" />
-                </Image.GestureRecognizers>
-            </Image>
-        </StackLayout>
+        <Grid HeightRequest="60" BackgroundColor="Black">
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center" HeightRequest="45" HorizontalOptions="CenterAndExpand" BackgroundColor="Black" >
+                <Image Source="{Binding TakePicture}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ManagePicture}" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="{Binding Gallery}" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GetPictureFromGallery}" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+        </Grid>
     </StackLayout>
 </ContentPage>

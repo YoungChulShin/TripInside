@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using TripInside.Models;
 using TripInside.View.Trip;
@@ -15,6 +16,10 @@ namespace TripInside.ViewModel.Trip
     {
         private INavigation _navigation;
         private ImageSource _picture1;
+        private ImageSource _picture2;
+        private ImageSource _picture3;
+        private ImageSource _picture4;
+        private ImageSource _picture5;
         private readonly string _weather_sunny = "WeatherSunny";
         private readonly string _weather_cloudy = "WeatherCloudy";
         private readonly string _weather_rainy = "WeatherRainy";
@@ -24,6 +29,7 @@ namespace TripInside.ViewModel.Trip
         private Geocoder _geoCoder;
         private string _storyText = string.Empty;
         private bool _viewPictures = false;
+        private List<ImageSource> _cameraPictures = new List<ImageSource>();
 
         public CreateInsideViewModel(INavigation navigation)
         {
@@ -31,12 +37,12 @@ namespace TripInside.ViewModel.Trip
             _geoCoder = new Geocoder();
             _currentWeather = _weather_sunny;
 
-            MessagingCenter.Subscribe<CreateInsideView, Stream>(this, "UpdateCameraPicture", (sender, arg) =>
-            {
-                //Picture1 = ImageSource.FromStream(() => arg);
-                Picture1 = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest.jpg");
-                ViewPictures = true;
-            });
+            //MessagingCenter.Subscribe<CreateInsideView, Stream>(this, "UpdateCameraPicture", (sender, arg) =>
+            //{
+            //    //Picture1 = ImageSource.FromStream(() => arg);
+            //    Picture1 = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest.jpg");
+            //    ViewPictures = true;
+            //});
 
             OnPropertyChanged(_currentWeather);
         }
@@ -53,8 +59,7 @@ namespace TripInside.ViewModel.Trip
                 OnPropertyChanged();
             }
         }
-
-
+        
         public ImageSource Picture1
         {
             get
@@ -66,6 +71,65 @@ namespace TripInside.ViewModel.Trip
                 _picture1 = value;
                 OnPropertyChanged();
             }
+        }
+        public ImageSource Picture2
+        {
+            get
+            {
+                return _picture2;
+            }
+            set
+            {
+                _picture2 = value;
+                OnPropertyChanged();
+            }
+        }
+        public ImageSource Picture3
+        {
+            get
+            {
+                return _picture3;
+            }
+            set
+            {
+                _picture3 = value;
+                OnPropertyChanged();
+            }
+        }
+        public ImageSource Picture4
+        {
+            get
+            {
+                return _picture4;
+            }
+            set
+            {
+                _picture4 = value;
+                OnPropertyChanged();
+            }
+        }
+        public ImageSource Picture5
+        {
+            get
+            {
+                return _picture5;
+            }
+            set
+            {
+                _picture5 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private void SetPictures(List<ImageSource> pictures)
+        {
+            try { Picture1 = pictures[0]; } catch { Picture1 = null; }
+            try { Picture2 = pictures[1]; } catch { Picture2 = null; }
+            try { Picture3 = pictures[2]; } catch { Picture3 = null; }
+            try { Picture4 = pictures[3]; } catch { Picture4 = null; }
+            try { Picture5 = pictures[4]; } catch { Picture5 = null; }
+
+            ViewPictures = (pictures.Count == 0) ? false : true;
         }
 
         public ImageSource WeatherSunny
@@ -125,35 +189,6 @@ namespace TripInside.ViewModel.Trip
 			}
 		}
 
-		public ImageSource EmotionHappiness
-		{
-			get
-			{
-				return ImageSource.FromResource("TripInside.Resources.Images.Emotions.happiness_blue.png");
-			}
-		}
-		public ImageSource EmotionSmile
-		{
-			get
-			{
-				return ImageSource.FromResource("TripInside.Resources.Images.Emotions.smile_black.png");
-			}
-		}
-		public ImageSource EmotionSad
-		{
-			get
-			{
-				return ImageSource.FromResource("TripInside.Resources.Images.Emotions.sad_black.png");
-			}
-		}
-		public ImageSource EmotionAngry
-		{
-			get
-			{
-				return ImageSource.FromResource("TripInside.Resources.Images.Emotions.angry_black.png");
-			}
-		}
-
 		public ImageSource Compass
 		{
 			get
@@ -175,8 +210,8 @@ namespace TripInside.ViewModel.Trip
 			{
 				return new Command(async () =>
 				{
-					await _navigation.PopModalAsync();
-				});
+                    await _navigation.PopModalAsync();
+                });
 			}
 		}
 
@@ -299,6 +334,27 @@ namespace TripInside.ViewModel.Trip
             {
                 return new Command(async () =>
                {
+                   _cameraPictures.Clear();
+                   ViewPictures = false;
+                   MessagingCenter.Unsubscribe<CreateInsideView, ImageSource>(this, "AddCameraPicture");
+                   MessagingCenter.Unsubscribe<CreateInsideView, ImageSource>(this, "RemoveCameraPicture");
+                   
+                   MessagingCenter.Subscribe<CreateInsideView, ImageSource>(this, "AddCameraPicture", (sender, arg) =>
+                   {
+                       if (_cameraPictures.Contains(arg) == false)
+                       {
+                           _cameraPictures.Add(arg);
+                           SetPictures(_cameraPictures);
+                       }
+                   });
+                   MessagingCenter.Subscribe<CreateInsideView, ImageSource>(this, "RemoveCameraPicture", (sender, arg) =>
+                   {
+                       if (_cameraPictures.Contains(arg))
+                       {
+                           _cameraPictures.Remove(arg);
+                           SetPictures(_cameraPictures);
+                       }
+                   });
                    await _navigation.PushAsync(new CreateInsideCameraView(null, 0));
                });
             }
