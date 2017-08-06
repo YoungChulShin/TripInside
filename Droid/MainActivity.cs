@@ -82,8 +82,9 @@ namespace TripInside.Droid
                 {
                     var dir = new Java.IO.File(Android.OS.Environment.GetExternalStoragePublicDirectory(
                           Android.OS.Environment.DirectoryPictures), "TripInside");
-
                     var file = new Java.IO.File(dir, string.Format("tripInside{0}.jpg", "test"));
+
+                   
                     Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
                     Android.Net.Uri contentUri = Android.Net.Uri.FromFile(file);
                     mediaScanIntent.SetData(contentUri);

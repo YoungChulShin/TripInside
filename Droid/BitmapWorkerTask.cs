@@ -12,6 +12,7 @@ using Android.Widget;
 using Android.Graphics;
 using System.IO;
 using Xamarin.Forms;
+using Java.IO;
 
 namespace TripInside.Droid
 {
@@ -20,11 +21,13 @@ namespace TripInside.Droid
         private Android.Net.Uri uriReference;
         private int data = 0;
         private ContentResolver resolver;
+        private BitmapFactory.Options options = new BitmapFactory.Options();
 
         public BitmapWorkerTask(ContentResolver cr, Android.Net.Uri uri)
         {
             uriReference = uri;
             resolver = cr;
+            options.InSampleSize = 8;
         }
 
         // Decode image in background.
@@ -33,7 +36,8 @@ namespace TripInside.Droid
             //This will be the orientation that was passed in from above (task.Execute(orientation);)
             data = p[0];
 
-            Bitmap mBitmap = Android.Provider.MediaStore.Images.Media.GetBitmap(resolver, uriReference);
+            //Bitmap mBitmap = Android.Provider.MediaStore.Images.Media.GetBitmap(resolver, uriReference);
+            Bitmap mBitmap = GetBitMap(resolver, uriReference, options);
             Bitmap myBitmap = null;
 
             if (mBitmap != null)
@@ -50,6 +54,18 @@ namespace TripInside.Droid
             }
 
             return null;
+        }
+
+        private Bitmap GetBitMap(ContentResolver resolver, Android.Net.Uri url, BitmapFactory.Options options)
+        {
+            Bitmap bitmap = null;
+
+            using (System.IO.Stream input = resolver.OpenInputStream(url))
+            {
+                bitmap = BitmapFactory.DecodeStream(input, null, options);
+            }
+
+            return bitmap;
         }
 
         protected override void OnPostExecute(Bitmap bitmap)
