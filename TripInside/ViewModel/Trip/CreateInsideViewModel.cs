@@ -37,13 +37,6 @@ namespace TripInside.ViewModel.Trip
             _geoCoder = new Geocoder();
             _currentWeather = _weather_sunny;
 
-            //MessagingCenter.Subscribe<CreateInsideView, Stream>(this, "UpdateCameraPicture", (sender, arg) =>
-            //{
-            //    //Picture1 = ImageSource.FromStream(() => arg);
-            //    Picture1 = ImageSource.FromResource("TripInside.Resources.Images.Controls.ImageTest.jpg");
-            //    ViewPictures = true;
-            //});
-
             OnPropertyChanged(_currentWeather);
         }
 
@@ -336,28 +329,37 @@ namespace TripInside.ViewModel.Trip
                {
                    _cameraPictures.Clear();
                    ViewPictures = false;
-                   MessagingCenter.Unsubscribe<CreateInsideView, ImageSource>(this, "AddCameraPicture");
-                   MessagingCenter.Unsubscribe<CreateInsideView, ImageSource>(this, "RemoveCameraPicture");
                    
-                   MessagingCenter.Subscribe<CreateInsideView, ImageSource>(this, "AddCameraPicture", (sender, arg) =>
-                   {
-                       if (_cameraPictures.Contains(arg) == false)
-                       {
-                           _cameraPictures.Add(arg);
-                           SetPictures(_cameraPictures);
-                       }
-                   });
-                   MessagingCenter.Subscribe<CreateInsideView, ImageSource>(this, "RemoveCameraPicture", (sender, arg) =>
-                   {
-                       if (_cameraPictures.Contains(arg))
-                       {
-                           _cameraPictures.Remove(arg);
-                           SetPictures(_cameraPictures);
-                       }
-                   });
                    await _navigation.PushAsync(new CreateInsideCameraView(null, 0));
                });
             }
+        }
+
+        public override void OnAppearing()
+        {
+            MessagingCenter.Subscribe<CreateInsideView, ImageSource>(this, "AddCameraPicture", (sender, arg) =>
+            {
+                if (_cameraPictures.Contains(arg) == false)
+                {
+                    _cameraPictures.Add(arg);
+                    SetPictures(_cameraPictures);
+                }
+            });
+
+            MessagingCenter.Subscribe<CreateInsideView, ImageSource>(this, "RemoveCameraPicture", (sender, arg) =>
+            {
+                if (_cameraPictures.Contains(arg))
+                {
+                    _cameraPictures.Remove(arg);
+                    SetPictures(_cameraPictures);
+                }
+            });
+        }
+
+        public override void OnDisappearing()
+        {
+            MessagingCenter.Unsubscribe<CreateInsideView, ImageSource>(this, "AddCameraPicture");
+            MessagingCenter.Unsubscribe<CreateInsideView, ImageSource>(this, "RemoveCameraPicture");
         }
 
         public string StoryText

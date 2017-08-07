@@ -46,7 +46,7 @@ namespace TripInside.ViewModel.Trip
                     {
                         CameraPicture = tempImage
                     });
-                    //MessagingCenter.Send<CreateInsideView, ImageSource>(new CreateInsideView(), "AddCameraPicture", tempImage);
+                    MessagingCenter.Send<CreateInsideView, ImageSource>(new CreateInsideView(), "AddCameraPicture", tempImage);
                 });
             });
         }
