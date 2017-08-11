@@ -27,7 +27,7 @@ namespace TripInside.Droid
         {
             uriReference = uri;
             resolver = cr;
-            options.InSampleSize = 8;
+            options.InSampleSize = 10;
         }
 
         // Decode image in background.

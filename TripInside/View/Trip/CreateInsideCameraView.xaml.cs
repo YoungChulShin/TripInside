@@ -13,11 +13,11 @@ namespace TripInside.View.Trip
     public partial class CreateInsideCameraView : ContentPage
     {
         private CreateInsideCameraViewModel _createInsideCameraViewModel;
-        public CreateInsideCameraView(List<Image> images, int index)
+        public CreateInsideCameraView(List<ImageSource> images)
         {
             InitializeComponent();
 
-            _createInsideCameraViewModel = new CreateInsideCameraViewModel(this.Navigation, images, index);
+            _createInsideCameraViewModel = new CreateInsideCameraViewModel(this.Navigation, images);
             BindingContext = _createInsideCameraViewModel;
             //BindingContext = new CreateInsideCameraViewModel(this.Navigation, images, index);
         }

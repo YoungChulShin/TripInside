@@ -20,6 +20,7 @@ namespace TripInside.ViewModel.Trip
         private ImageSource _picture3;
         private ImageSource _picture4;
         private ImageSource _picture5;
+        private string _insideDate;
         private readonly string _weather_sunny = "WeatherSunny";
         private readonly string _weather_cloudy = "WeatherCloudy";
         private readonly string _weather_rainy = "WeatherRainy";
@@ -37,7 +38,57 @@ namespace TripInside.ViewModel.Trip
             _geoCoder = new Geocoder();
             _currentWeather = _weather_sunny;
 
+            InsideDate = GetInsideDateFromDateTime();
+
             OnPropertyChanged(_currentWeather);
+        }
+
+        private string GetInsideDateFromDateTime()
+        {
+            DateTime currentDate = DateTime.Now;
+            return string.Format("{0}({1}) {2}",
+                currentDate.ToString("yyyy.MM.dd"),
+                GetWeekDay(currentDate),
+                currentDate.ToString("HH:mm"));
+        }
+
+        private string GetWeekDay(DateTime dateTime)
+        {
+            string tempWeekDay = string.Empty;
+            var dt = dateTime.DayOfWeek;
+
+            switch (dt)
+            {
+                case DayOfWeek.Monday: //월
+                    tempWeekDay = "월";
+                    break;
+
+                case DayOfWeek.Tuesday: //화
+                    tempWeekDay = "화";
+                    break;
+
+                case DayOfWeek.Wednesday: //수
+                    tempWeekDay = "수";
+                    break;
+
+                case DayOfWeek.Thursday: //목
+                    tempWeekDay = "목";
+                    break;
+
+                case DayOfWeek.Friday: //금
+                    tempWeekDay = "금";
+                    break;
+
+                case DayOfWeek.Saturday: //토
+                    tempWeekDay = "토";
+                    break;
+
+                case DayOfWeek.Sunday: //일
+                    tempWeekDay = "일";
+                    break;
+            }
+
+            return tempWeekDay;
         }
 
         public bool ViewPictures
@@ -49,6 +100,19 @@ namespace TripInside.ViewModel.Trip
             set
             {
                 _viewPictures = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string InsideDate
+        {
+            get
+            {
+                return _insideDate;
+            }
+            set
+            {
+                _insideDate = value;
                 OnPropertyChanged();
             }
         }
@@ -326,17 +390,17 @@ namespace TripInside.ViewModel.Trip
             get
             {
                 return new Command(async () =>
-               {
-                   _cameraPictures.Clear();
-                   ViewPictures = false;
-                   
-                   await _navigation.PushAsync(new CreateInsideCameraView(null, 0));
+               {              
+                   await _navigation.PushAsync(new CreateInsideCameraView(_cameraPictures));
                });
             }
         }
 
         public override void OnAppearing()
         {
+            MessagingCenter.Unsubscribe<CreateInsideView, ImageSource>(this, "AddCameraPicture");
+            MessagingCenter.Unsubscribe<CreateInsideView, ImageSource>(this, "RemoveCameraPicture");
+
             MessagingCenter.Subscribe<CreateInsideView, ImageSource>(this, "AddCameraPicture", (sender, arg) =>
             {
                 if (_cameraPictures.Contains(arg) == false)
@@ -358,8 +422,8 @@ namespace TripInside.ViewModel.Trip
 
         public override void OnDisappearing()
         {
-            MessagingCenter.Unsubscribe<CreateInsideView, ImageSource>(this, "AddCameraPicture");
-            MessagingCenter.Unsubscribe<CreateInsideView, ImageSource>(this, "RemoveCameraPicture");
+            //_cameraPictures.Clear();
+            //ViewPictures = false;
         }
 
         public string StoryText

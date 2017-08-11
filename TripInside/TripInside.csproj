@@ -329,6 +329,7 @@
     <Compile Include="Models\TripHistoryInfo.cs" />
     <Compile Include="Models\TripHistoryPicture.cs" />
     <Compile Include="Models\TripInfo.cs" />
+    <Compile Include="MyControls\PlaceholderEditor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="Types\WeatherType.cs" />
@@ -388,9 +389,7 @@
     <None Include="packages.config" />
     <EmbeddedResource Include="Resources\Images\Weathers\rain_selected.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MyControls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Reference Include="Plugin.Geolocator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xam.Plugin.Geolocator.4.0.1\lib\netstandard1.0\Plugin.Geolocator.dll</HintPath>

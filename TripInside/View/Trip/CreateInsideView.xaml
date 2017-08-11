@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:pe="clr-namespace:TripInside.MyControls;assembly=TripInside"
             x:Class="TripInside.View.Trip.CreateInsideView"
             BackgroundColor="White"
             Padding="0,0,0,5">
@@ -27,7 +28,7 @@
                 <ColumnDefinition Width="30" />
                 <ColumnDefinition Width="30" />
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Text="2017.06.10  20:09" TextColor="Black" FontSize="16" FontAttributes="Bold" VerticalTextAlignment="Center" />
+            <Label Grid.Column="0" Text="{Binding InsideDate}" TextColor="#9DA6AB" FontSize="20" FontAttributes="Bold" VerticalTextAlignment="Center" />
             <Image x:name="imgSun" Grid.Column="2" Source="{Binding WeatherSunny}">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding SetWeatherToSunny}" />
@@ -53,7 +54,9 @@
         <!--<Frame HasShadow="false" BackgroundColor="Silver" Padding="1" VerticalOptions="FillAndExpand">
             <Editor VerticalOptions="FillAndExpand" Keyboard="Chat" BackgroundColor="White"/>
         </Frame>-->
-        <Editor VerticalOptions="FillAndExpand" Keyboard="Chat" BackgroundColor="White"/>
+        <!--<Editor VerticalOptions="FillAndExpand" Keyboard="Chat" BackgroundColor="White"/>-->
+        <pe:PlaceholderEditor Placeholder="여행 기록을 남겨보세요" PlaceholderColor="Silver" 
+                              VerticalOptions="FillAndExpand" Keyboard="Chat" BackgroundColor="White"/>
         <ScrollView Orientation="Horizontal" IsVisible="{Binding ViewPictures}">
             <StackLayout Orientation="Horizontal" HeightRequest="70" >
                 <Image Source="{Binding Picture1}" BackgroundColor="White" Aspect="AspectFit" />

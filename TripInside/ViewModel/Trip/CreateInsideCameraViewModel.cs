@@ -17,20 +17,17 @@ namespace TripInside.ViewModel.Trip
     {
         private ObservableCollection<CameraGallery> _items;
         private INavigation _navigation;
-        private List<Image> _images;
-        private int _imageIndex;
         private ImageSource _currentImage;
 
-        public CreateInsideCameraViewModel(INavigation navigaion, List<Image> images, int index)
+        public CreateInsideCameraViewModel(INavigation navigaion, List<ImageSource> images)
         {
-            
-
             _navigation = navigaion;
-            _imageIndex = index;
-            _images = images;
-
-
             Items = new ObservableCollection<CameraGallery>();
+            
+            foreach (var item in images)
+            {
+                Items.Add(new CameraGallery() { CameraPicture = item });
+            }
         }
 
         public override void OnAppearing()
