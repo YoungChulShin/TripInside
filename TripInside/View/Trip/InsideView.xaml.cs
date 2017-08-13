@@ -7,10 +7,10 @@ namespace TripInside.View.Trip
 {
     public partial class InsideView : ContentPage
     {
-        public InsideView()
+        public InsideView(int tripID)
         {
             InitializeComponent();
-            BindingContext = new InsideViewModel(this.Navigation);
+            BindingContext = new InsideViewModel(this.Navigation, tripID);
         }
     }
 }

@@ -10,12 +10,12 @@ namespace TripInside.View.Trip
     public partial class CreateInsideView : ContentPage
     {
         CreateInsideViewModel _viewModel;
-        public CreateInsideView()
+        public CreateInsideView(int tripID = 0)
         {
             NavigationPage.SetHasNavigationBar(this, false);
 
             InitializeComponent();
-            _viewModel = new CreateInsideViewModel(this.Navigation);
+            _viewModel = new CreateInsideViewModel(this.Navigation, tripID);
             BindingContext = _viewModel;
             //BindingContext = new CreateInsideViewModel(this.Navigation);
         }

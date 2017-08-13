@@ -15,7 +15,7 @@ namespace TripInside.Models.DBModels
         private DateTime _toDate;
         private DateTime _createDate;
 
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement, Indexed]
         public int Id
         {
             get
@@ -29,7 +29,7 @@ namespace TripInside.Models.DBModels
             }
         }
 
-        [NotNull]
+        [NotNull, Indexed]
         public string Name
         {
             get
@@ -43,7 +43,7 @@ namespace TripInside.Models.DBModels
             }
         }
 
-        [NotNull]
+        [NotNull, Indexed]
         public string NationalCode
         {
             get
@@ -57,7 +57,7 @@ namespace TripInside.Models.DBModels
             }
         }
 
-        [NotNull]
+        [NotNull, Indexed]
         public DateTime FromDate
         {
             get
@@ -71,7 +71,7 @@ namespace TripInside.Models.DBModels
             }
         }
 
-        [NotNull]
+        [NotNull, Indexed]
         public DateTime ToDate
         {
             get

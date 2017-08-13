@@ -16,10 +16,12 @@ namespace TripInside.ViewModel.Trip
         private InsidePictureView _pictureView;
         private InsideStoryView _storyView;
         private ContentView _currentView;
+        private int _tripID;
 
-        public InsideViewModel(INavigation navigation)
+        public InsideViewModel(INavigation navigation, int tripID)
         {
             _navigation = navigation;
+            _tripID = tripID;
             _mapView = new InsideMapView();
             _pictureView = new InsidePictureView();
             _storyView = new InsideStoryView();
@@ -60,7 +62,7 @@ namespace TripInside.ViewModel.Trip
             {
                 return new Command(async () =>
                 {
-                    await _navigation.PushModalAsync(new NavigationPage(new CreateInsideView()));
+                    await _navigation.PushModalAsync(new NavigationPage(new CreateInsideView(_tripID)));
                     //await _navigation.PushAsync(new CreateInsideView());
                 });
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TripInside.Models;
 using TripInside.Service;
 using TripInside.ViewModel.Trip;
 using Xamarin.Forms;
@@ -16,7 +17,8 @@ namespace TripInside.View.Trip
 
 		void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
 		{
-            NavigationService.MainNavigation.PushAsync(new InsideView());
+            var selectedItem =  (TripInfo)e.Item;
+            NavigationService.MainNavigation.PushAsync(new InsideView(selectedItem.Id));
            
             //Navigation. PushAsync(new InsideView());
             //Navigation.PushModalAsync(new NavigationPage(new InsideView())

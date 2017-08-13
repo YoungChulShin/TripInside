@@ -6,6 +6,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TripInside.Models;
+using TripInside.Models.DBModels;
 using TripInside.View.Trip;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
@@ -32,11 +33,17 @@ namespace TripInside.ViewModel.Trip
         private bool _viewPictures = false;
         private List<ImageSource> _cameraPictures = new List<ImageSource>();
 
-        public CreateInsideViewModel(INavigation navigation)
+
+        private TripHistory _tripHistory;
+
+
+        public CreateInsideViewModel(INavigation navigation, int tripID)
         {
             _navigation = navigation;
             _geoCoder = new Geocoder();
             _currentWeather = _weather_sunny;
+            _tripHistory = new TripHistory();
+            _tripHistory.Id = tripID;
 
             InsideDate = GetInsideDateFromDateTime();
 
@@ -126,6 +133,7 @@ namespace TripInside.ViewModel.Trip
             set
             {
                 _picture1 = value;
+                
                 OnPropertyChanged();
             }
         }

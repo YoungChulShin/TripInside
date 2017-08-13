@@ -6,13 +6,13 @@ using Xamarin.Forms;
 namespace TripInside.Models.DBModels
 {
     [Table("TripHistory")]
-    public class TripHistory
+    public class TripHistory : BaseModel
     {
-        [PrimaryKey]
-        public int Id { get; set; }
-
-        [PrimaryKey]
+        [PrimaryKey, Indexed]
         public DateTime RegisterDate { get; set; }
+
+        [NotNull, Indexed]
+        public int Id { get; set; }
 
         [NotNull]
         public string Weather { get; set; }
@@ -21,14 +21,17 @@ namespace TripInside.Models.DBModels
 
         public long Longitude { get; set; }
 
+        [NotNull]
         public string Contents { get; set; }
-
-        public string Emotion { get; set; }
-
+        
         public byte[] Image1 { get; set; }
+
         public byte[] Image2 { get; set; }
+
         public byte[] Image3 { get; set; }
+
         public byte[] Image4 { get; set; }
+
         public byte[] Image5 { get; set; }
     }
 }

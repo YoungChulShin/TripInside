@@ -321,13 +321,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Database\TripHistoryDataAccess.cs" />
     <Compile Include="DependencyServices\ICamera.cs" />
     <Compile Include="DependencyServices\IPicturePicker.cs" />
     <Compile Include="Models\CameraGallery.cs" />
     <Compile Include="Models\DBModels\TripHistory.cs" />
-    <Compile Include="Models\TripHistoryInfo.cs" />
-    <Compile Include="Models\TripHistoryPicture.cs" />
     <Compile Include="Models\TripInfo.cs" />
     <Compile Include="MyControls\PlaceholderEditor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
