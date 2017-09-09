@@ -56,7 +56,8 @@
         </Frame>-->
         <!--<Editor VerticalOptions="FillAndExpand" Keyboard="Chat" BackgroundColor="White"/>-->
         <pe:PlaceholderEditor Placeholder="여행 기록을 남겨보세요" PlaceholderColor="Silver" 
-                              VerticalOptions="FillAndExpand" Keyboard="Chat" BackgroundColor="White"/>
+                              VerticalOptions="FillAndExpand" Keyboard="Chat" BackgroundColor="White" 
+                              Text="{Binding StoryText}"/>
         <ScrollView Orientation="Horizontal" IsVisible="{Binding ViewPictures}">
             <StackLayout Orientation="Horizontal" HeightRequest="70" >
                 <Image Source="{Binding Picture1}" BackgroundColor="White" Aspect="AspectFit" />
@@ -64,6 +65,11 @@
                 <Image Source="{Binding Picture3}" BackgroundColor="White" Aspect="AspectFit" />
                 <Image Source="{Binding Picture4}" BackgroundColor="White" Aspect="AspectFit" />
                 <Image Source="{Binding Picture5}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture6}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture7}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture8}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture9}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture10}" BackgroundColor="White" Aspect="AspectFit" />
             </StackLayout>
         </ScrollView>
         <!--<Grid Padding="0,10,0,10">
@@ -92,7 +98,7 @@
             <Label Text="{Binding GPSLocation}" FontSize="13" />
         </StackLayout>
         <Button Text="기록 하기" BackgroundColor="#1ABC9C" HeightRequest="45" 
-                Style="{StaticResource DefaultButtonStype}" />
+                Style="{StaticResource DefaultButtonStype}" Command="{Binding CreateInside}" />
         <Button Text="다음에 하기" BackgroundColor="#BEBEBE" HeightRequest="45"
                 Style="{StaticResource DefaultButtonStype}" Command="{Binding CancelCreateInside}" />
     </StackLayout>

@@ -2,5 +2,26 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TripInside.View.Trip.InsideStoryView">
-    <Label Text="Story View" FontSize="15"/>
+    <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Horizontal">
+            <Label Text="2017.08.17(월) 20:08" TextColor="#1ABC9C" FontAttributes="Bold" />
+            <Image x:name="imgCurrent" Source="{Binding WeatherCloudy}" />
+            <Label Text="Seoul, Korea" TextColor="#1ABC9C" HorizontalOptions="End" HorizontalTextAlignment="End"/>
+        </StackLayout>
+        <Label Text="내일이면 베트남 여행을 떠난다. 지금은 짐 정리하는 중.\n재밌는 여행이 되었으면 좋겠다"  />
+        <ScrollView Orientation="Horizontal" IsVisible="True">
+            <StackLayout Orientation="Horizontal" HeightRequest="70" >
+                <Image Source="{Binding Picture1}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture2}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture3}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture4}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture5}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture6}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture7}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture8}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture9}" BackgroundColor="White" Aspect="AspectFit" />
+                <Image Source="{Binding Picture10}" BackgroundColor="White" Aspect="AspectFit" />
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
 </ContentView>

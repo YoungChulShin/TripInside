@@ -17,9 +17,9 @@ namespace TripInside.Models.DBModels
         [NotNull]
         public string Weather { get; set; }
 
-        public long Latitude { get; set; }
+        public double Latitude { get; set; }
 
-        public long Longitude { get; set; }
+        public double Longitude { get; set; }
 
         [NotNull]
         public string Contents { get; set; }
@@ -33,5 +33,15 @@ namespace TripInside.Models.DBModels
         public byte[] Image4 { get; set; }
 
         public byte[] Image5 { get; set; }
+
+        public byte[] Image6 { get; set; }
+
+        public byte[] Image7 { get; set; }
+
+        public byte[] Image8 { get; set; }
+
+        public byte[] Image9 { get; set; }
+
+        public byte[] Image10 { get; set; }
     }
 }

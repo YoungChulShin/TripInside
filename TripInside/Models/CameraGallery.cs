@@ -24,6 +24,7 @@ namespace TripInside.Models
                 OnPropertyChanged();
             }
         }
+        public byte[] ImageData { get; set; }
         public ImageSource DeletePicture
         {
             get

@@ -19,14 +19,17 @@ namespace TripInside.ViewModel.Trip
         private INavigation _navigation;
         private ImageSource _currentImage;
 
-        public CreateInsideCameraViewModel(INavigation navigaion, List<ImageSource> images)
+        public CreateInsideCameraViewModel(INavigation navigaion, List<CameraGallery> cameraGalley)
         {
             _navigation = navigaion;
             Items = new ObservableCollection<CameraGallery>();
-            
-            foreach (var item in images)
+
+            if (cameraGalley != null)
             {
-                Items.Add(new CameraGallery() { CameraPicture = item });
+                foreach (var item in cameraGalley)
+                {
+                    Items.Add(item);
+                }
             }
         }
 
@@ -37,19 +40,21 @@ namespace TripInside.ViewModel.Trip
                 Device.BeginInvokeOnMainThread(() =>
                 {
                     //Set the source of the image view with the byte array
-                    var tempImage = ImageSource.FromStream(() => new MemoryStream((byte[])args));
-
-                    Items.Add(new CameraGallery()
+                    var imageSource = ImageSource.FromStream(() => new MemoryStream(args));
+                    var careraGallery = new CameraGallery()
                     {
-                        CameraPicture = tempImage
-                    });
-                    MessagingCenter.Send<CreateInsideView, ImageSource>(new CreateInsideView(), "AddCameraPicture", tempImage);
+                        CameraPicture = imageSource,
+                        ImageData = args
+                    };
+
+                    Items.Add(careraGallery);
                 });
             });
         }
 
         public override void OnDisappearing()
         {
+            MessagingCenter.Send<CreateInsideView, List<CameraGallery>>(new CreateInsideView(), "AddCameraPicture", _items.ToList());
             MessagingCenter.Unsubscribe<byte[]>(this, "ImageSelected");
         }
 
@@ -104,7 +109,7 @@ namespace TripInside.ViewModel.Trip
                     if (parameter.IsSelectedPicture)
                     {
                         Items.RemoveAt(_items.IndexOf(parameter));
-                        MessagingCenter.Send<CreateInsideView, ImageSource>(new CreateInsideView(), "RemoveCameraPicture", parameter.CameraPicture);
+                        //MessagingCenter.Send<CreateInsideView, ImageSource>(new CreateInsideView(), "RemoveCameraPicture", parameter.CameraPicture);
                     }
                 });
             }
